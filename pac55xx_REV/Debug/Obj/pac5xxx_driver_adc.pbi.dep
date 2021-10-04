@@ -27,11 +27,21 @@ pac5xxx_driver_adc.pbi: \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral/pac5xxx_uart.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral/pac5xxx_ssp.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral/pac5xxx_wwdt.h \
-  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\driver\pac5xxx_driver_gpio.h \
-  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\driver/pac5xxx_driver_config.h \
-  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\driver\pac5xxx_driver_system.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\device\pac5532.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx_tile_driver_manager.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx_tile_power_manager.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx_tile_signal_manager.h \
-  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx_tile_system_manager.h
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx_tile_system_manager.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\driver\pac5xxx_driver_uart.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\driver/pac5xxx_driver_config.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\driver\pac5xxx_driver_gpio.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\driver\pac5xxx_driver_system.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\gpio\gpio_func.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\stdio.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\ysizet.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\common\common.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx_gpio.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\uart\uart_func.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx_uart.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\can\can_func.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx_can.h

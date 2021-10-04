@@ -16,6 +16,7 @@
 
 #include "stdio.h"
 #include "pac5xxx.h"
+#include "common.h"
 #include "pac5xxx_gpio.h"
 
 void gpio_output_init(void);

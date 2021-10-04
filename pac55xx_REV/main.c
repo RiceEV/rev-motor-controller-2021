@@ -22,29 +22,33 @@
 // - Including the device header file defines the appropriate PAC55xx device (E.g. PAC5523)
 //     and the associated CAFE Architecture (CAFE_ARCH1 or CAFE_ARCH2).
 
-#include "pac5xxx.h"                        // pac5xxx.h also includes most peripheral header files
-#include "pac5xxx_driver_gpio.h"
-#include "pac5xxx_driver_system.h"
+                                  // pac5xxx.h also includes most peripheral header files
+#include "pac5xxx.h"
 
-// Include one of the following device headers before accessing AFE registers included in pac5xxx_tile... headers
+#include "init.h"
+//#define MOTORCONTROL            // Uncomment to initialize peripherals for motor control
+//#define TEST                    // Uncomment for use when testing
 
-#include "pac5532.h"
 
-void system_init(void);
-void gpio_app(void);
 
 int main(void)
 {
   
-  
     for (volatile int i = 0; i < 1000000; i++);
     
     system_init();
+
+    
+#ifdef MOTORCONTROL
+    hall_sensor_init();
+    
+    
+#endif
     
 
     while(1)
     {
-        gpio_app();
+        //uart_app();
     }
 }
 

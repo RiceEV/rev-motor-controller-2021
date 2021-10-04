@@ -12,7 +12,7 @@
 //=============================================================================
 
 #include "pac5xxx.h"
-#include "gpio_func.h"
+#include "common.h"
 
 //===============================================================================================================================
 // This app shows the basic function of GPIO operation: Output and interrupt input

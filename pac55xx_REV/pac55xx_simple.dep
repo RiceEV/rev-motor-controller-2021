@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>4</fileVersion>
-    <fileChecksum>1865611773</fileChecksum>
+    <fileChecksum>2266753846</fileChecksum>
     <configuration>
         <name>Debug</name>
         <outputs>
@@ -70,6 +70,7 @@
             <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_system.xcl</file>
             <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_gpio.o</file>
             <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_tile_socbridge.o</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\common\common.h</file>
             <file>$PROJ_DIR$\Debug\Obj\timer_isr.o</file>
             <file>$PROJ_DIR$\Debug\Obj\pwm_func.xcl</file>
             <file>$PROJ_DIR$\Debug\Obj\timer_app.xcl</file>
@@ -165,14 +166,17 @@
             <file>$PROJ_DIR$\Debug\Obj\uart_app.o</file>
             <file>$PROJ_DIR$\pac55xx_sdk\src\init\init.c</file>
             <file>$PROJ_DIR$\pac55xx_sdk\src\init\init.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\common\common.c</file>
             <file>$PROJ_DIR$\pac55xx_sdk\src\init.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\common.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\common.xcl</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 44 145</file>
+                    <file> 44 146</file>
                 </tool>
             </outputs>
         </file>
@@ -191,7 +195,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 20 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 16 8 32 9 5 3 10</file>
+                    <file> 20 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 16 143 113 111 65 125 84</file>
                 </tool>
             </inputs>
         </file>
@@ -210,7 +214,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 28 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10</file>
+                    <file> 28 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84</file>
                 </tool>
             </inputs>
         </file>
@@ -229,7 +233,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 22 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10</file>
+                    <file> 22 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84</file>
                 </tool>
             </inputs>
         </file>
@@ -248,7 +252,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 27 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10 28</file>
+                    <file> 27 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84 28</file>
                 </tool>
             </inputs>
         </file>
@@ -267,7 +271,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 16 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 32 9 5 3 10</file>
+                    <file> 16 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 143 113 111 65 125 84</file>
                 </tool>
             </inputs>
         </file>
@@ -286,7 +290,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 31 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10</file>
+                    <file> 31 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 20 8 16 143 113 111 65 125 84</file>
                 </tool>
             </inputs>
         </file>
@@ -305,7 +309,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 36 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10</file>
+                    <file> 36 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84</file>
                 </tool>
             </inputs>
         </file>
@@ -324,7 +328,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 38 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10</file>
+                    <file> 38 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84</file>
                 </tool>
             </inputs>
         </file>
@@ -342,13 +346,13 @@
             <outputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 145</file>
+                    <file> 146</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ILINK</name>
-                    <file> 103 147 146 150 84 49 47 58 63 46 55 64 52 48 57 105 102 104 144</file>
+                    <file> 104 99 102 100 163 148 147 151 85 49 47 58 63 46 55 64 52 48 57 158 157 154 106 103 105 145</file>
                 </tool>
             </inputs>
         </file>
@@ -367,7 +371,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10</file>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84 160 22</file>
                 </tool>
             </inputs>
         </file>
@@ -376,55 +380,64 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 99</file>
+                    <file> 100</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 97</file>
+                    <file> 98</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\pac55xx_sdk\src\can\can_func.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 101</file>
+                    <file> 102</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 96</file>
+                    <file> 97</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\pac55xx_sdk\src\can\can_app.c</name>
             <outputs>
                 <tool>
+                    <name>ICCARM</name>
+                    <file> 99</file>
+                </tool>
+                <tool>
                     <name>BICOMP</name>
-                    <file> 100</file>
+                    <file> 101</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_isr.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 153</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
                     <file> 154</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_func.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 156</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -434,7 +447,26 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 124</file>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 157</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 156</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 125 113 115 108 114 107 116 111 25 120 109 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 65 84</file>
                 </tool>
             </inputs>
         </file>
@@ -443,98 +475,26 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 157</file>
+                    <file> 158</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 152</file>
+                    <file> 153</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\pac55xx_sdk\src\timer\capture_func.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 73</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 69</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\qep_isr.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 71</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 75</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\pwm_func.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 78</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 66</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_func.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 77</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 68</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_app.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
                     <file> 74</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 67</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_isr.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 65</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 116</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\qep_func.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 72</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -543,20 +503,117 @@
             </outputs>
         </file>
         <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\qep_isr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 72</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 76</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\pwm_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 79</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 67</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 78</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 69</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_app.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 75</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 68</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_isr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 66</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 117</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\qep_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 73</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 71</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
             <name>$PROJ_DIR$\pac55xx_sdk\src\timer\pwm_driver_func.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 76</file>
+                    <file> 77</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 79</file>
+                    <file> 80</file>
                 </tool>
             </outputs>
         </file>
         <file>
             <name>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_app.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 148</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 150</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_func.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
@@ -570,26 +627,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10 142 112 110</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_func.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 146</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 148</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 142 112 114 107 113 106 115 110 25 119 108 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10</file>
+                    <file> 143 113 115 108 114 107 116 111 25 120 109 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 125 65 84</file>
                 </tool>
             </inputs>
         </file>
@@ -598,22 +636,78 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 150</file>
+                    <file> 151</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 151</file>
+                    <file> 152</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10</file>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84</file>
                 </tool>
             </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\aio_func.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 96</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_app.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 91</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_isr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 93</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 88</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\aio_app.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 94</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 87</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_func.c</name>
             <outputs>
                 <tool>
                     <name>BICOMP</name>
@@ -623,63 +717,7 @@
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_app.c</name>
-            <outputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 90</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_isr.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 92</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 87</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\aio_app.c</name>
-            <outputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 93</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 86</file>
-                </tool>
-            </outputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_func.c</name>
-            <outputs>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 94</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICCARM</name>
-                    <file> 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12</file>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12</file>
                 </tool>
             </inputs>
         </file>
@@ -688,36 +726,49 @@
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 84</file>
+                    <file> 85</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 85</file>
+                    <file> 86</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10</file>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 32 9 5 3 10 31 8 20 16 143 113 111 65 125 84 160 22</file>
                 </tool>
             </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\common\common.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 163</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 164</file>
+                </tool>
+            </outputs>
         </file>
         <file>
             <name>$PROJ_DIR$\pac55xx_sdk\src\init.c</name>
             <outputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 84</file>
+                    <file> 85</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 85</file>
+                    <file> 86</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICCARM</name>
-                    <file> 25 119 108 114 107 113 106 115 111 109 117 120 118 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10</file>
+                    <file> 25 120 109 115 108 114 107 116 112 110 118 121 119 18 19 7 24 1 17 23 2 4 0 11 6 12 20 8 16 32 9 5 3 10</file>
                 </tool>
             </inputs>
         </file>

@@ -12,6 +12,7 @@
 //=============================================================================
 
 #include "pac5xxx.h"
+#include "common.h"
 
 PAC5XXX_RAMFUNC void GpioC_IRQHandler(void)
 {

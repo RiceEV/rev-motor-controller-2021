@@ -355,6 +355,13 @@
                     <state>$PROJ_DIR$\pac55xx_sdk\boot_IAR</state>
                     <state>$PROJ_DIR$\pac55xx_sdk\driver</state>
                     <state>$PROJ_DIR$\pac55xx_sdk\peripheral</state>
+                    <state>$PROJ_DIR$\pac55xx_sdk\src</state>
+                    <state>$PROJ_DIR$\pac55xx_sdk\src\can</state>
+                    <state>$PROJ_DIR$\pac55xx_sdk\src\gpio</state>
+                    <state>$PROJ_DIR$\pac55xx_sdk\src\init</state>
+                    <state>$PROJ_DIR$\pac55xx_sdk\src\uart</state>
+                    <state>$PROJ_DIR$\pac55xx_sdk\src\aio</state>
+                    <state>$PROJ_DIR$\pac55xx_sdk\src\common</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -2267,7 +2274,31 @@
         <group>
             <name>src</name>
             <group>
+                <name>aio</name>
+            </group>
+            <group>
                 <name>can</name>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\can\can_app.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\can\can_func.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\can\can_func.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\can\can_isr.c</name>
+                </file>
+            </group>
+            <group>
+                <name>common</name>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\common\common.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\common\common.h</name>
+                </file>
             </group>
             <group>
                 <name>gpio</name>
@@ -2289,9 +2320,24 @@
                 <file>
                     <name>$PROJ_DIR$\pac55xx_sdk\src\init\init.c</name>
                 </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\init\init.h</name>
+                </file>
             </group>
             <group>
                 <name>uart</name>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_app.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_func.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_func.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_isr.c</name>
+                </file>
             </group>
         </group>
         <file>

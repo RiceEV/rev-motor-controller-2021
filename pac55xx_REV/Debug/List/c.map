@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.50.9.278/W32 for ARM                  03/Oct/2021  18:53:01
+# IAR ELF Linker V8.50.9.278/W32 for ARM                  03/Oct/2021  22:19:11
 # Copyright 2007-2020 IAR Systems AB.
 #
 #    Output file  =
@@ -8,8 +8,12 @@
 #    Map file     =
 #        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\List\c.map
 #    Command line =
-#        -f C:\Users\olima\AppData\Local\Temp\EW6746.tmp
-#        (C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\gpio_app.o
+#        -f C:\Users\olima\AppData\Local\Temp\EW3273.tmp
+#        (C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\can_app.o
+#        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\can_func.o
+#        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\can_isr.o
+#        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\common.o
+#        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\gpio_app.o
 #        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\gpio_func.o
 #        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\gpio_isr.o
 #        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\init.o
@@ -23,6 +27,9 @@
 #        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\pac5xxx_driver_timer.o
 #        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\pac5xxx_driver_uart.o
 #        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\startup_pac55xx_iar.o
+#        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\uart_app.o
+#        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\uart_func.o
+#        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj\uart_isr.o
 #        --no_out_extension -o
 #        C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Exe\c.out
 #        --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull --map
@@ -38,6 +45,7 @@
 ***
 
 CppFlavor       = *
+__Heap_Handler  = Basic
 __SystemLibrary = DLib
 __dlib_version  = 6
 
@@ -76,45 +84,55 @@ No sections matched the following patterns:
   .intvec            ro code          0x0   0xbc  startup_pac55xx_iar.o [1]
                                    - 0xbc   0xbc
 
-"P1":                                      0x450
-  .text              ro code         0xbc  0x158  gpio_func.o [1]
-  .text              ro code        0x214   0xc0  init.o [1]
-  .text              ro code        0x2d4   0x90  pac5xxx_driver_system.o [1]
-  .text              ro code        0x364   0x20  startup_pac55xx_iar.o [1]
-  .text              ro code        0x384   0x3c  gpio_app.o [1]
-  .text              ro code        0x3c0   0x2e  copy_init3.o [4]
-  .text              ro code        0x3f0   0x28  data_init.o [4]
-  .text              ro code        0x418   0x24  main.o [1]
-  .text              ro code        0x43c   0x22  fpinit_M.o [3]
-  .iar.init_table    const          0x460   0x14  - Linker created -
-  .text              ro code        0x474   0x1e  cmain.o [4]
-  .text              ro code        0x492    0x4  low_level_init.o [2]
-  .text              ro code        0x496    0x4  exit.o [2]
-  .text              ro code        0x49c    0xa  cexit.o [4]
-  .text              ro code        0x4a8   0x14  exit.o [5]
-  .text              ro code        0x4bc   0x1c  cstartup_M.o [4]
-  .text              ro code        0x4d8    0x4  startup_pac55xx_iar.o [1]
-  .rodata            const          0x4dc    0x0  copy_init3.o [4]
-  Initializer bytes  const          0x4dc   0x30  <for P3 s0>
-                                  - 0x50c  0x450
+"P1":                                      0x55c
+  .text              ro code         0xbc  0x17c  uart_isr.o [1]
+  .text              ro code        0x238   0xc0  init.o [1]
+  .text              ro code        0x2f8   0x90  pac5xxx_driver_system.o [1]
+  .text              ro code        0x388   0x20  startup_pac55xx_iar.o [1]
+  .text              ro code        0x3a8   0x2e  copy_init3.o [4]
+  .text              ro code        0x3d8   0x2c  iarttio.o [5]
+  .text              ro code        0x404    0xc  XShttio.o [2]
+  .text              ro code        0x410   0x28  data_init.o [4]
+  .text              ro code        0x438   0x22  fpinit_M.o [3]
+  .iar.init_table    const          0x45c   0x14  - Linker created -
+  .text              ro code        0x470   0x20  main.o [1]
+  .text              ro code        0x490   0x1e  cmain.o [4]
+  .text              ro code        0x4ae    0x4  low_level_init.o [2]
+  .text              ro code        0x4b2    0x4  exit.o [2]
+  .text              ro code        0x4b8    0xa  cexit.o [4]
+  .text              ro code        0x4c4   0x14  exit.o [5]
+  .text              ro code        0x4d8   0x1c  cstartup_M.o [4]
+  .text              ro code        0x4f4    0x4  startup_pac55xx_iar.o [1]
+  .rodata            const          0x4f8    0x0  copy_init3.o [4]
+  Initializer bytes  const          0x4f8  0x120  <for P3 s0>
+                                  - 0x618  0x55c
 
-"P3", part 1 of 2:                          0x30
-  P3 s0                       0x2000'0000   0x30  <Init block>
-    .textrw          inited   0x2000'0000   0x20  gpio_isr.o [1]
-    .text            inited   0x2000'0020    0xe  startup_pac55xx_iar.o [1]
-                            - 0x2000'0030   0x30
+"P3", part 1 of 2:                         0x120
+  P3 s0                       0x2000'0000  0x120  <Init block>
+    .textrw          inited   0x2000'0000   0xa0  can_isr.o [1]
+    .bss             inited   0x2000'00a0   0x34  uart_isr.o [1]
+    .textrw          inited   0x2000'00d4   0x20  gpio_isr.o [1]
+    .text            inited   0x2000'00f4    0xe  startup_pac55xx_iar.o [1]
+    .bss             inited   0x2000'0102    0x2  can_func.o [1]
+    .data            inited   0x2000'0104    0x8  XShttio.o [2]
+    .bss             inited   0x2000'010c    0x8  can_func.o [1]
+    .bss             inited   0x2000'0114    0x4  can_func.o [1]
+    .bss             inited   0x2000'0118    0x4  uart_isr.o [1]
+    .bss             inited   0x2000'011c    0x1  can_func.o [1]
+    .bss             inited   0x2000'011d    0x1  can_func.o [1]
+                            - 0x2000'0120  0x120
 
 "P3", part 2 of 2:                         0x200
-  CSTACK                      0x2000'0030  0x200  <Block>
-    CSTACK           uninit   0x2000'0030  0x200  <Block tail>
-                            - 0x2000'0230  0x200
+  CSTACK                      0x2000'0120  0x200  <Block>
+    CSTACK           uninit   0x2000'0120  0x200  <Block tail>
+                            - 0x2000'0320  0x200
 
 Unused ranges:
 
          From           To      Size
          ----           --      ----
-        0x50c     0x1'ffff  0x1'faf4
-  0x2000'0230  0x2000'7fff    0x7dd0
+        0x618     0x1'ffff  0x1'f9e8
+  0x2000'0320  0x2000'7fff    0x7ce0
 
 
 *******************************************************************************
@@ -124,10 +142,10 @@ Unused ranges:
           Address      Size
           -------      ----
 Copy (__iar_copy_init3)
-    1 source range, total size 0x30 (104% of destination):
-                0x4dc  0x30
-    1 destination range, total size 0x2e:
-          0x2000'0000  0x2e
+    1 source range, total size 0x120 (100% of destination):
+                0x4f8  0x120
+    1 destination range, total size 0x11e:
+          0x2000'0000  0x11e
 
 
 
@@ -142,21 +160,23 @@ command line/config:
     Total:
 
 C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj: [1]
-    gpio_app.o                    60
-    gpio_func.o                  344
+    can_func.o                                      16       16
+    can_isr.o                             160      160
     gpio_isr.o                             32       32
     init.o                       192
-    main.o                        36
+    main.o                        32
     pac5xxx_driver_system.o      144
     startup_pac55xx_iar.o        224       14       14
+    uart_isr.o                   380                56       56
     -----------------------------------------------------------
-    Total:                     1'000       46       46
+    Total:                       972      206      278       72
 
 dl7M_tlf.a: [2]
+    XShttio.o                     12                 8        8
     exit.o                         4
     low_level_init.o               4
     -----------------------------------------------------------
-    Total:                         8
+    Total:                        20                 8        8
 
 m7M_tls.a: [3]
     fpinit_M.o                    34
@@ -174,13 +194,14 @@ rt7M_tl.a: [4]
 
 shb_l.a: [5]
     exit.o                        20
+    iarttio.o                     44
     -----------------------------------------------------------
-    Total:                        20
+    Total:                        64
 
     Gaps                           6                 2
     Linker created                                  22      512
 ---------------------------------------------------------------
-    Grand Total:               1'222       46       70      512
+    Grand Total:               1'250      206      310      592
 
 
 *******************************************************************************
@@ -189,40 +210,50 @@ shb_l.a: [5]
 
 Entry                       Address  Size  Type      Object
 -----                       -------  ----  ----      ------
-.iar.init_table$$Base         0x460         --   Gb  - Linker created -
-.iar.init_table$$Limit        0x474         --   Gb  - Linker created -
-?main                         0x475        Code  Gb  cmain.o [4]
-CSTACK$$Base            0x2000'0030         --   Gb  - Linker created -
-CSTACK$$Limit           0x2000'0230         --   Gb  - Linker created -
-GpioC_IRQHandler        0x2000'0001  0x20  Code  Gb  gpio_isr.o [1]
-Region$$Table$$Base           0x460         --   Gb  - Linker created -
-Region$$Table$$Limit          0x474         --   Gb  - Linker created -
-__NVIC_EnableIRQ               0xbd  0x1e  Code  Lc  gpio_func.o [1]
-__NVIC_SetPriority             0xdb  0x2c  Code  Lc  gpio_func.o [1]
-__cmain                       0x475        Code  Gb  cmain.o [4]
-__exit                        0x4a9  0x14  Code  Gb  exit.o [5]
-__iar_copy_init3              0x3c1  0x2e  Code  Gb  copy_init3.o [4]
-__iar_data_init3              0x3f1  0x28  Code  Gb  data_init.o [4]
-__iar_init_vfp                0x43d        Code  Gb  fpinit_M.o [3]
-__iar_program_start           0x4bd        Code  Gb  cstartup_M.o [4]
-__low_level_init              0x493   0x4  Code  Gb  low_level_init.o [2]
+.iar.init_table$$Base         0x45c         --   Gb  - Linker created -
+.iar.init_table$$Limit        0x470         --   Gb  - Linker created -
+?main                         0x491        Code  Gb  cmain.o [4]
+CAN_IRQHandler          0x2000'0001  0xa0  Code  Gb  can_isr.o [1]
+CSTACK$$Base            0x2000'0120         --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'0320         --   Gb  - Linker created -
+GpioC_IRQHandler        0x2000'00d5  0x20  Code  Gb  gpio_isr.o [1]
+Region$$Table$$Base           0x45c         --   Gb  - Linker created -
+Region$$Table$$Limit          0x470         --   Gb  - Linker created -
+USARTA_IRQHandler              0xdb  0x3c  Code  Gb  uart_isr.o [1]
+USARTB_IRQHandler             0x117  0x54  Code  Gb  uart_isr.o [1]
+USARTC_IRQHandler             0x16b  0x64  Code  Gb  uart_isr.o [1]
+USARTD_IRQHandler             0x1cf  0x3c  Code  Gb  uart_isr.o [1]
+__NVIC_ClearPendingIRQ         0xbd  0x1e  Code  Lc  uart_isr.o [1]
+__cmain                       0x491        Code  Gb  cmain.o [4]
+__exit                        0x4c5  0x14  Code  Gb  exit.o [5]
+__iar_close_ttio              0x3d9  0x2c  Code  Gb  iarttio.o [5]
+__iar_copy_init3              0x3a9  0x2e  Code  Gb  copy_init3.o [4]
+__iar_data_init3              0x411  0x28  Code  Gb  data_init.o [4]
+__iar_init_vfp                0x439        Code  Gb  fpinit_M.o [3]
+__iar_lookup_ttioh            0x405   0x4  Code  Gb  XShttio.o [2]
+__iar_program_start           0x4d9        Code  Gb  cstartup_M.o [4]
+__iar_ttio_handles      0x2000'0104   0x8  Data  Lc  XShttio.o [2]
+__low_level_init              0x4af   0x4  Code  Gb  low_level_init.o [2]
 __vector_table                  0x0        Data  Gb  startup_pac55xx_iar.o [1]
 __vector_table_0x1c            0x1c        Data  Gb  startup_pac55xx_iar.o [1]
-_call_main                    0x481        Code  Gb  cmain.o [4]
-_exit                         0x49d        Code  Gb  cexit.o [4]
-_main                         0x48b        Code  Gb  cmain.o [4]
-exit                          0x497   0x4  Code  Gb  exit.o [2]
-gpio_app                      0x385  0x3c  Code  Gb  gpio_app.o [1]
-gpio_input_init               0x157  0x2a  Code  Gb  gpio_func.o [1]
-gpio_interrupt_init           0x181  0x4e  Code  Gb  gpio_func.o [1]
-gpio_output_init              0x107  0x50  Code  Gb  gpio_func.o [1]
-main                          0x419  0x24  Code  Gb  main.o [1]
+_call_main                    0x49d        Code  Gb  cmain.o [4]
+_exit                         0x4b9        Code  Gb  cexit.o [4]
+_main                         0x4a7        Code  Gb  cmain.o [4]
+buffer                  0x2000'0114   0x4  Data  Gb  can_func.o [1]
+exit                          0x4b3   0x4  Code  Gb  exit.o [2]
+main                          0x471  0x20  Code  Gb  main.o [1]
 pac5xxx_sys_pll_config_enable
-                              0x2d5  0x3a  Code  Gb  pac5xxx_driver_system.o [1]
-pac_delay_asm                 0x36f        Code  Gb  startup_pac55xx_iar.o [1]
-pac_delay_asm_ramfunc   0x2000'0021        Code  Gb  startup_pac55xx_iar.o [1]
-pac_recovery                  0x30f  0x44  Code  Gb  pac5xxx_driver_system.o [1]
-system_init                   0x215  0xc0  Code  Gb  init.o [1]
+                              0x2f9  0x3a  Code  Gb  pac5xxx_driver_system.o [1]
+pac_delay_asm                 0x393        Code  Gb  startup_pac55xx_iar.o [1]
+pac_delay_asm_ramfunc   0x2000'00f5        Code  Gb  startup_pac55xx_iar.o [1]
+pac_recovery                  0x333  0x44  Code  Gb  pac5xxx_driver_system.o [1]
+rx_data                 0x2000'010c   0x8  Data  Gb  can_func.o [1]
+rx_dataLen              0x2000'011c   0x1  Data  Gb  can_func.o [1]
+rx_flag                 0x2000'011d   0x1  Data  Gb  can_func.o [1]
+rx_id                   0x2000'0102   0x2  Data  Gb  can_func.o [1]
+system_init                   0x239  0x92  Code  Gb  init.o [1]
+uart_read_buf           0x2000'00a0  0x34  Data  Gb  uart_isr.o [1]
+uart_read_count         0x2000'0118   0x4  Data  Gb  uart_isr.o [1]
 
 
 [1] = C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\Debug\Obj
@@ -231,10 +262,10 @@ system_init                   0x215  0xc0  Code  Gb  init.o [1]
 [4] = rt7M_tl.a
 [5] = shb_l.a
 
-  1'222 bytes of readonly  code memory
-     46 bytes of readwrite code memory
-     70 bytes of readonly  data memory
-    512 bytes of readwrite data memory
+  1'250 bytes of readonly  code memory
+    206 bytes of readwrite code memory
+    310 bytes of readonly  data memory
+    592 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

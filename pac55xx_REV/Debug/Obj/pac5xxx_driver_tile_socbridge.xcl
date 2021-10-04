@@ -23,6 +23,20 @@ C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55x
 -I
 C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\
 -I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\can\
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\gpio\
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\init\
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\uart\
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\aio\
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\common\
+-I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\CMSIS\Core\Include\
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\CMSIS\DSP\Include\
@@ -42,6 +56,20 @@ C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55x
 C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\driver
 -I
 C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\can
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\gpio
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\init
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\uart
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\aio
+-I
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\common
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\CMSIS\Core\Include
 -I

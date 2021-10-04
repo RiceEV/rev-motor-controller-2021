@@ -149,9 +149,27 @@ typedef enum IRQn
 #include "pac5xxx_ssp.h"                        // PAC55XX SSP include file
 #include "pac5xxx_wwdt.h"                       // PAC55XX Watchdog Timer include file
 
+#include "pac5532.h"
+
+#include "pac5xxx_driver_uart.h"
 #include "pac5xxx_driver_gpio.h"
 #include "pac5xxx_driver_system.h"
-#include "pac5532.h"
+
+
+#include "gpio_func.h"
+#include "uart_func.h"
+#include "can_func.h"
+
+#ifndef PAC5XXX_OK
+#define PAC5XXX_OK      0
+#endif
+
+#ifndef PAC5XXX_ERROR
+#define PAC5XXX_ERROR   1
+#endif
+
+#define READ_UINT16(address)                      (*((uint16_t *) address))
+#define READ_UINT32(address)                      (*((uint32_t *) address))
 
 
 //==============================================================================
