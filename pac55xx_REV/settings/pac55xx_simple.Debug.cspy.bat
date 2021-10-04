@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\settings\pac55xx_simple.Debug.general.xcl" --backend -f "C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\settings\pac55xx_simple.Debug.driver.xcl" 
+"C:\Program Files\IAR Systems\Embedded Workbench 9.0\common\bin\cspybat" -f "C:\Users\etdpe\OneDrive\Desktop\rev-motor-controller-2021\pac55xx_REV\settings\pac55xx_simple.Debug.general.xcl" --backend -f "C:\Users\etdpe\OneDrive\Desktop\rev-motor-controller-2021\pac55xx_REV\settings\pac55xx_simple.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\settings\pac55xx_simple.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\settings\pac55xx_simple.Debug.driver.xcl" 
+"C:\Program Files\IAR Systems\Embedded Workbench 9.0\common\bin\cspybat" -f "C:\Users\etdpe\OneDrive\Desktop\rev-motor-controller-2021\pac55xx_REV\settings\pac55xx_simple.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\etdpe\OneDrive\Desktop\rev-motor-controller-2021\pac55xx_REV\settings\pac55xx_simple.Debug.driver.xcl" 
 
 @echo off 
 :end
