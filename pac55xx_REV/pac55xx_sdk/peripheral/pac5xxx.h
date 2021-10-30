@@ -135,6 +135,8 @@ typedef enum IRQn
     #warning Compiler type not supported
 #endif
 
+#include <stdint.h>
+
 #include "pac5xxx_adc.h"                        // PAC55XX ADC include file
 #include "pac5xxx_can.h"                        // PAC55XX CAN include file
 #include "pac5xxx_crc.h"                        // PAC55XX CRC include file
@@ -159,6 +161,9 @@ typedef enum IRQn
 #include "gpio_func.h"
 #include "uart_func.h"
 #include "can_func.h"
+
+
+#include "common.h"
 
 #ifndef PAC5XXX_OK
 #define PAC5XXX_OK      0

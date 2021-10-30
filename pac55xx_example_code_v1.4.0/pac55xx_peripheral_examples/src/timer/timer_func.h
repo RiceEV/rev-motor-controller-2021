@@ -76,7 +76,7 @@ void configure_timer_a_pwm_driver_output_phase_delay_mode(void);
 void configure_timer_synchronization(void);
 void configure_timer_b(void);
 void configure_timer_c_compare_mode(void);
-void configure_timer_c_pwm_output(void);
+extern void configure_timer_c_pwm_output(void);
 void configure_timer_c_pwm_trigger_adc(void);
 void configure_timer_d_capture_mode(void);
 void configure_timer_d_compare_mode(void);

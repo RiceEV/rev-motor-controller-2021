@@ -24,9 +24,9 @@
 
 PUTCHAR_PROTOTYPE
 {
-    PAC55XX_UARTC->THR.THR = ch;                // Transmit a char;
+    //PAC55XX_UARTC->THR.THR = ch;                // Transmit a char;
 //    while (PAC55XX_UARTC->IIR.INTID == 0)       // set whilst TX in progress
 //        continue;
-    while (PAC55XX_UARTC->LSR.TEMT == 0);
-    return (ch);
+    //while (PAC55XX_UARTC->LSR.TEMT == 0);
+    //return (ch);
 }

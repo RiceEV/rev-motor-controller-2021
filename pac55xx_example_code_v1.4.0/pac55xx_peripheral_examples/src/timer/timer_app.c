@@ -16,9 +16,9 @@
 //=====================================
 // select test function
 //=====================================
-#define TEST_TIMER_BASE
+//#define TEST_TIMER_BASE
 //#define TEST_TIMER_SYNCHRONIZATION
-//#define TEST_TIMER_PWM_OUTPUT
+#define TEST_TIMER_PWM_OUTPUT
 //#define TEST_TIMER_CAPTURE
 //#define TEST_TIMER_PWM_SYMMETRIC
 //#define TEST_TIMER_PWM_ASYMMETRIC
@@ -37,6 +37,7 @@ void timer_app(void)
     system_init();
     uart_init(UARTC, 115200);
     gpiox_debug_init();
+    
 
 #ifdef TEST_TIMER_BASE
     //-----------------------test base timer-----------------------------//

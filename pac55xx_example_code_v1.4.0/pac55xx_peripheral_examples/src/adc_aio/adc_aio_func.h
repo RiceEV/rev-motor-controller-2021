@@ -278,14 +278,16 @@ void aio6_special_output_lpdac(void);
 void aio6_special_output_hpdac(void);
 
 void test_manual_adc(void);
-void adc_manual_init(void);
+extern void adc_manual_init(void);
 void adc_manual_convert_vcore(void);
 void adc_manual_convert_vcc33(void);
 void adc_manual_convert_vccio(void);
 void adc_manual_convert_vsys(void);
 void adc_manual_convert_vp(void);
 void adc_manual_convert_temperature(void);
-void adc_manual_sample(void);
+extern void adc_manual_sample(void);
+
+extern uint32_t adc_manual_convert_channel(uint8_t adc_channel);
 
 void test_adc_dtse_sequence_example_1(void);
 void init_adc_dtse_sequence_example_1(void);

@@ -18,6 +18,25 @@ PERIPHERAL_VARIABLES peripheral;
 
 int main(void)
 {
+  
+   system_init();
+   uart_init(UARTB, 115200);
+   adc_manual_init();
+   ssp_init(SSPC, SSP_MS_MASTER);
+  while(1) {
+   for(volatile int i = 0; i < 500000; i++);
+  uint16_t sample = adc_manual_convert_channel(ADCCTL_CHANNEL_ADC6);
+  uart_write_one(UARTB, sample);
+        uart_write_one(UARTB, sample << 8);
+        sample = sample >> 7;
+        ssp_write_one(SSPC, sample);
+        uint32_t data = PAC55XX_SSPC->DAT.w;
+  }
+  //adc_app();
+  //can_app();
+  //timer_app();
+  
+  
 
     #ifdef  ADC_TEST
         adc_app();

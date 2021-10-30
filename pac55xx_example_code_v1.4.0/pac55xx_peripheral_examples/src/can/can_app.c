@@ -30,12 +30,12 @@ void can_app(void)
 	
     while(1)
     {
-    //	delay_times(10000);
-        if(rx_flag)
-        {
-            rx_flag = 0;
-            can_transmit(8, 0x01, tx_data);
-            //can_transmit(8, 0x02, tx_data);
+    	delay_times(10000);
+        //if(rx_flag)
+        //{
+            //rx_flag = 0;
+            //can_transmit(8, 0x01, tx_data);
+            can_transmit(8, 0x02, tx_data);
             printf("rx_dataLen = %4x    ",rx_dataLen);
             printf("rx_id = %4x    ",rx_id);
             printf("rx_data[0] = %4x    ",rx_data[0]);
@@ -46,6 +46,6 @@ void can_app(void)
             printf("rx_data[5] = %4x    ",rx_data[5]);
             printf("rx_data[6] = %4x    ",rx_data[6]);
             printf("rx_data[7] = %4x    \r\n",rx_data[7]);
-        }
+        //}
     }
 }

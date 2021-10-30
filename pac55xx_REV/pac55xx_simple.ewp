@@ -2339,6 +2339,12 @@
                     <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_isr.c</name>
                 </file>
             </group>
+            <file>
+                <name>$PROJ_DIR$\pac55xx_sdk\src\hs_functions.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\pac55xx_sdk\src\isr_TimerC.c</name>
+            </file>
         </group>
         <file>
             <name>$PROJ_DIR$\pac55xx_sdk\pac5xxx_sdk_version.h</name>

@@ -27,10 +27,13 @@
 
 void uart_app(void);
 
+
 extern volatile uint8_t uart_read_buf[50];
 extern volatile uint8_t flag_uart_read_receive_done;
 extern volatile uint8_t flag_uart_write_send_done;
 extern volatile uint32_t uart_read_count;
+
+extern void uart_trig(void);
 
 extern void uart_init(UART_TYPE uart, uint32_t baudrate);
 extern uint32_t uart_read_one(UART_TYPE uart, uint8_t *data);

@@ -36,7 +36,7 @@ void adc_app(void)
     __disable_irq();
 
     system_init();
-    uart_init(UARTC, 115200);
+    uart_init(UARTB, 115200);
 
     gpio_output_init();
 
@@ -81,6 +81,9 @@ void test_manual_adc(void)
         adc_manual_convert_vsys();                  // Convert the VSYS voltage
         adc_manual_convert_vp();                    // Convert the VP voltage
         adc_manual_convert_temperature();           // Convert and calculate device Temperature
+        uint16_t sample = adc_manual_convert_channel(ADCCTL_CHANNEL_ADC6);
+        uart_write_one(UARTB, sample);
+        uart_write_one(UARTB, sample << 8);
     }
 }
 

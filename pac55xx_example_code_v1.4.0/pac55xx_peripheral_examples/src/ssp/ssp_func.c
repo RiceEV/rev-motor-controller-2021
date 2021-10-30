@@ -742,7 +742,7 @@ void ssp_init(SSP_TYPE ssp, SSP_MS_TYPE ms_mode)
     ssp_ptr->CON.SOD = SSP_OUTPUT_NOT_DRIVE;                 // Slave Output Disable
 
     ssp_io_config(ssp, ms_mode);
-    ssp_interrupt_enable(ssp);
+    //ssp_interrupt_enable(ssp);
 
     // Set the interrupt for Reading data
 //    ssp_ptr->IMSC.TXIM = 1;                                  // Enable TX FIFO interrupt

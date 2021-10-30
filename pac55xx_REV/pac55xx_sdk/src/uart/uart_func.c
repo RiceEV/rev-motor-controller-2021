@@ -19,6 +19,17 @@
 ///     UARTA_Rx <--> PA5
 ///
 //==============================================================================
+void uart_trig(void) {
+  uint32_t msg_nice = 0x6E696365 ;
+        uart_write_one(UARTB, msg_nice >>24);
+        uart_write_one(UARTB, msg_nice >>16);
+        uart_write_one(UARTB, msg_nice >>8);
+        uart_write_one(UARTB, msg_nice >>0);
+        
+        
+        uart_write_one(UARTB, 0x20);
+}
+
 void UARTA_IO_Select_PA45(void)
 {
     PAC55XX_GPIOA->MODE.P4 = IO_PUSH_PULL_OUTPUT;               // TX

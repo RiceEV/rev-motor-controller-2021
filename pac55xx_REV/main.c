@@ -26,8 +26,10 @@
 #include "pac5xxx.h"
 
 #include "init.h"
-//#define MOTORCONTROL            // Uncomment to initialize peripherals for motor control
+#define MOTORCONTROL            // Uncomment to initialize peripherals for motor control
 //#define TEST                    // Uncomment for use when testing
+
+
 
 
 
@@ -36,14 +38,29 @@ int main(void)
   
     for (volatile int i = 0; i < 1000000; i++);
     
+  
+
+
+    
     system_init();
 
     
-#ifdef MOTORCONTROL
+//#ifdef MOTORCONTROL
+    uart_init(UARTB, 115200);
     hall_sensor_init();
+    gate_drive_init();
+    configure_timer_b_compare_mode();
+    cafe_init();
     
     
-#endif
+//#endif
+    
+    volatile uint32_t current_speed = (( PAC55XX_TIMER_SEL->PRD.w >> 5) * (uint32_t)((10)));
+        
+    
+    PAC55XX_TIMER_SEL->CCTR4.CTR = (( PAC55XX_TIMER_SEL->PRD.w >> 5) * (uint32_t)((10)));;
+    PAC55XX_TIMER_SEL->CCTR5.CTR = (( PAC55XX_TIMER_SEL->PRD.w >> 5) * (uint32_t)((10)));;
+    PAC55XX_TIMER_SEL->CCTR6.CTR = (( PAC55XX_TIMER_SEL->PRD.w >> 5) * (uint32_t)((10)));;
     
 
     while(1)
