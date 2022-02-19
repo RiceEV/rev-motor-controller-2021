@@ -156,6 +156,7 @@ typedef enum IRQn
 #include "pac5xxx_driver_uart.h"
 #include "pac5xxx_driver_gpio.h"
 #include "pac5xxx_driver_system.h"
+#include "pac5xxx_driver_tile.h"
 
 
 #include "gpio_func.h"

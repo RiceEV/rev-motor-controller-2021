@@ -11,6 +11,9 @@
 //
 //=============================================================================
 
+//#include "pac5xxx.h"
+#define INCLUDE_EXTERNS
+#include "common.h"
 #include "gpio_func.h"
 
 void gpio_output_init(void)

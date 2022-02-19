@@ -1,4 +1,4 @@
-"C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\isr_TimerC.c"
+"C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\ISR_Handlers\isr_TimerC.c"
 -std=c11
 -ferror-limit=0
 -fbracket-depth=512
@@ -9,7 +9,7 @@ C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55x
 -o
 isr_TimerC.pbi
 -I
-C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src
+C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\ISR_Handlers
 -I
 C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\
 -I

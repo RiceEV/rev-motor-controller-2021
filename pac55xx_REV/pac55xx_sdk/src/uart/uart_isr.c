@@ -11,7 +11,9 @@
 //
 //=============================================================================
  
-#include "pac5xxx.h"
+//#include "pac5xxx.h"
+#define INCLUDE_EXTERNS
+#include "common.h"
 
 volatile uint8_t uart_read_buf[50];
 volatile uint8_t flag_uart_read_receive_done;

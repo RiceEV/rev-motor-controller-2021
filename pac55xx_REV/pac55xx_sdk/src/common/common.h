@@ -1,22 +1,106 @@
 
+
+#define LEFT_MOTOR      0xF0
+#define RIGHT_MOTOR     0x0F
+
+#define MOTOR_ID        LEFT_MOTOR
+
 //#define APP_RAMFUNC __ramfunc
+
+#ifndef COMMON_H 
+#define COMMON_H
+
+
+#ifndef INCLUDE_EXTERNS
+#define EXTERN volatile
+#else
+#define EXTERN extern volatile
+#endif
+
+#include "pac5xxx.h"
+#include "pac5xxx_tile_driver_manager.h"
+#include "pac5xxx_tile_power_manager.h"
+#include "pac5xxx_tile_signal_manager.h"
+#include "pac5xxx_tile_system_manager.h"
+
+#define APP_RAMFUNC PAC5XXX_RAMFUNC
+
+typedef enum
+{
+	pwmc0,
+	pwmc1,
+	pwmc2,
+	pwmc4,
+	pwmc5,
+	pwmc6,
+	pwmc_base,
+	firstcomm
+} CCRNumbers;
+
+
+
+
 
 // Motor Variables & Constants
 
-extern volatile uint8_t motor_dir;
+EXTERN uint32_t motorspeed;
 
-extern volatile uint8_t hall_sensor_value;
-extern volatile uint8_t next_commutation_state;
+EXTERN uint8_t motor_dir;
 
-
-extern volatile uint32_t avg_speed_index;
-extern volatile uint32_t avg_speed_array[6];
-extern volatile uint32_t avg_speed;
+EXTERN uint8_t hall_sensor_value;
+EXTERN uint8_t next_commutation_state;
 
 
-extern const uint8_t hs_to_commutation[2][8];
-extern const uint32_t psel_mask[2][6];
-extern const uint8_t c_pwm_io_state[2][6];
+EXTERN uint16_t avg_speed_index;
+EXTERN uint32_t avg_speed_array[6];
+EXTERN uint32_t avg_speed;
+EXTERN uint32_t last_comm_ctr;
+EXTERN uint32_t num_periods;
+
+
+
+#ifndef INCLUDE_EXTERNS
+	EXTERN const uint32_t psel_mask[2][6] = 			{{0x00010001, 0x00100010, 0x00100010, 0x01000100, 0x01000100, 0x00010001},{0x00010001, 0x00010001, 0x01000100, 0x01000100, 0x00100010, 0x00100010}};
+
+
+	EXTERN const uint8_t c_pwm_io_state[2][6] = 		{{0x04, 0x04, 0x01, 0x01, 0x02, 0x02},{0x04, 0x02, 0x02, 0x01, 0x01, 0x04}};
+	EXTERN const uint8_t c_pwm_hiz_state[2][6] = 		{{0x02, 0x01, 0x04, 0x02, 0x01, 0x04},{0x02, 0x04, 0x01, 0x02, 0x04, 0x01}};
+	EXTERN const uint8_t slcomp_mux[2][6] = 			{{SLCOMP8, SLCOMP7, SLCOMP9, SLCOMP8, SLCOMP7, SLCOMP9},{SLCOMP8, SLCOMP9, SLCOMP7, SLCOMP8, SLCOMP9, SLCOMP7}};
+	EXTERN const uint32_t slcomp_cross_polarity[2][6] = {{0x01, 0, 0x01, 0, 0x01, 0},{0, 0x01, 0, 0x01, 0, 0x01}};
+
+	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0x03,0x02,0xFF,0x01,0x04,0xFF,0x05,0x00},{0x00,0x01,0xFF,0x02,0x05,0xFF,0x04,0x03}};  	//Motor Code ASVX
+	EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x05,0x04,0x01,0x02,0x00,0xFF},{0xFF,0x00,0x04,0x05,0x02,0x01,0x03,0xFF}};		//Motor Code BLY17
+	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x05,0x01,0x00,0x03,0x04,0x02,0xFF},{0xFF,0x04,0x02,0x03,0x00,0x05,0x01,0xFF}};		//Motor Code ASPVT
+	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x04,0x00,0x05,0x02,0x03,0x01,0xFF},{0xFF,0x05,0x03,0x04,0x01,0x00,0x02,0xFF}};		//Motor Code ASRR
+	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x05,0x04,0x01,0x02,0x00,0xFF},{0xFF,0x03,0x05,0x04,0x01,0x02,0x00,0xFF}};		//Motor Code ASFG-HVB
+	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x05,0x03,0x04,0x01,0x00,0x02,0xFF},{0xFF,0x05,0x01,0x00,0x03,0x04,0x02,0xFF}};		//Motor Code ASRD
+	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x05,0x04,0x01,0x02,0x00,0xFF},{0xFF,0x01,0x05,0x00,0x03,0x02,0x04,0xFF}};		//Motor Code QDR
+	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x01,0x02,0x05,0x04,0x00,0xFF},{0xFF,0x01,0x03,0x02,0x05,0x00,0x04,0xFF}};		//Motor Code ASPO8
+	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x00,0x02,0x01,0x04,0x05,0x03,0xFF},{0xFF,0x04,0x02,0x03,0x00,0x05,0x01,0xFF}};		//Motor Code QPO2
+	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x05,0x04,0x01,0x02,0x00,0xFF},{0xFF,0x02,0x00,0x01,0x04,0x03,0x05,0xFF}};		//Motor Code RCS
+	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x01,0x02,0x05,0x04,0x00,0xFF},{0xFF,0x05,0x01,0x00,0x03,0x04,0x02,0xFF}};		//Motor Code QSWD
+     /* EXTERN const uint8_t slcomp_mux[2][6];
+	EXTERN const uint8_t c_pwm_io_state[2][6];
+	EXTERN const uint8_t c_pwm_hiz_state[2][6];
+	EXTERN const uint32_t psel_mask[2][6];
+	EXTERN const uint32_t psel_mask_pbmux[2][6];
+	EXTERN const uint32_t psel_mask_pcmux[2][6];
+	EXTERN const uint32_t slcomp_cross_polarity[2][6];
+	EXTERN const uint8_t hs_to_commutation[2][8];
+*/
+        
+        
+#else
+	EXTERN const uint8_t slcomp_mux[2][6];
+	EXTERN const uint8_t c_pwm_io_state[2][6];
+	EXTERN const uint8_t c_pwm_hiz_state[2][6];
+	EXTERN const uint32_t psel_mask[2][6];
+	EXTERN const uint32_t psel_mask_pbmux[2][6];
+	EXTERN const uint32_t psel_mask_pcmux[2][6];
+	EXTERN const uint32_t slcomp_cross_polarity[2][6];
+	EXTERN const uint8_t hs_to_commutation[2][8];
+#endif
+
 
 
 
@@ -26,29 +110,70 @@ extern const uint8_t c_pwm_io_state[2][6];
 
 #define PWM_SWITCH_FREQ 50
 #define TIMER_X_FREQ_CNV 100000
-
-extern volatile int phase_pwm_period;
-extern volatile int pwm_period_ticks; 
-
-extern volatile uint32_t dt_leading_ticks, dt_trailing_ticks;
+        
 
 
-extern uint32_t pclk;
-extern uint16_t period;
+EXTERN uint32_t phase_pwm_period;
+EXTERN uint32_t pwm_period_ticks; 
+EXTERN uint32_t pwm_period_div256;
+EXTERN uint32_t accel_factor;
+
+EXTERN uint32_t dt_leading_ticks, dt_trailing_ticks;
+
+
+EXTERN uint32_t pclk;
+EXTERN uint16_t period;
+
+
+EXTERN uint16_t motor_ready;
+
+EXTERN uint32_t millisecond;
 
 // function prototypes
 
+PAC5XXX_RAMFUNC void update_motor_params();
 void commutate(uint32_t ccrn);
+void motor_pwm_disable();
+void motor_pwm_enable();
+void Set_Dead_Time(void);
+
 
 
 
 // cafe globals
 
-extern volatile uint32_t hp_over_current_limit;
-extern volatile uint32_t lp_over_current_limit;
-extern volatile uint32_t module_enable_bits;
+EXTERN uint32_t hp_over_current_limit;
+EXTERN uint32_t lp_over_current_limit;
+EXTERN uint32_t module_enable_bits;
+EXTERN uint32_t current_speed;
 
-extern volatile uint32_t current_speed;
+
+
+
+
+// CAN MESSAGE IDS
+
+#define SHUTDOWN                0x00
+
+#define FATAL_ERROR             0x01
+
+#define SHUTDOWN_ACK            0x02
+
+#define INIT_MOTOR_PARAMS       0x10
+#define BRAKE                   0x11
+#define ACCELERATE              0x12
+
+#define GET_MOTOR_SPEED         0x20
+
+
+#define SEND_MOTOR_SPEED     0x30
+
+
+
+
+
+
+
 
 
 
@@ -57,7 +182,7 @@ extern volatile uint32_t current_speed;
 
 #define RSENSE_mOHMS		10
 #define HP_IOCP_AMPS		31					//Desired OCP Current in Amps
-#define LP_IOCP_AMPS		31					//Desired OCP Current in Amps
+#define LP_IOCP_AMPS		31      				//Desired OCP Current in Amps
 
 
 #define	TIMER_X_FREQ_CNV			100000		//Applies to both TIMERA and TIMERB depending on PAC55xx device being employed
@@ -185,8 +310,8 @@ extern volatile uint32_t current_speed;
 //#define HP_IOCP_AMPS			xx					//Defined on bldc_hw_select.h
 //#define LP_IOCP_AMPS			xx					//Defined on bldc_hw_select.h
 //#define RSENSE_mOHMS			xx					//Defined on bldc_hw_select.h
-#define	HP_OCP_DEF				511 + (HP_IOCP_AMPS * DIFFAMP_GAIN_X * 511 * RSENSE_mOHMS) / (1.25 * 1000)
-#define	LP_OCP_DEF				511 + (LP_IOCP_AMPS * DIFFAMP_GAIN_X * 511 * RSENSE_mOHMS) / (1.25 * 1000)
+#define	HP_OCP_DEF				(uint32_t)511 + (HP_IOCP_AMPS * DIFFAMP_GAIN_X * 511 * RSENSE_mOHMS) / (1.25 * 1000)
+#define	LP_OCP_DEF				(uint32_t)511 + (LP_IOCP_AMPS * DIFFAMP_GAIN_X * 511 * RSENSE_mOHMS) / (1.25 * 1000)
 #endif
 
 //***********************************************************************
@@ -348,3 +473,6 @@ extern volatile uint32_t current_speed;
 #define	OPTIMIZE_O2		__attribute__((optimize("O2")))
 #define	OPTIMIZE_O3		__attribute__((optimize("O3")))
 #define	OPTIMIZE_Os		__attribute__((optimize("Os")))
+
+
+#endif // COMMON_H

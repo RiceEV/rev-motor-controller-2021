@@ -2279,9 +2279,6 @@
             <group>
                 <name>can</name>
                 <file>
-                    <name>$PROJ_DIR$\pac55xx_sdk\src\can\can_app.c</name>
-                </file>
-                <file>
                     <name>$PROJ_DIR$\pac55xx_sdk\src\can\can_func.c</name>
                 </file>
                 <file>
@@ -2303,9 +2300,6 @@
             <group>
                 <name>gpio</name>
                 <file>
-                    <name>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_app.c</name>
-                </file>
-                <file>
                     <name>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_func.c</name>
                 </file>
                 <file>
@@ -2325,10 +2319,25 @@
                 </file>
             </group>
             <group>
-                <name>uart</name>
+                <name>ISR_Handlers</name>
                 <file>
-                    <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_app.c</name>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\ISR_Handlers\isr_Stubs.c</name>
                 </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\ISR_Handlers\isr_TimerA.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\ISR_Handlers\isr_TimerB.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\ISR_Handlers\isr_TimerC.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\ISR_Handlers\isr_TimerD.c</name>
+                </file>
+            </group>
+            <group>
+                <name>uart</name>
                 <file>
                     <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_func.c</name>
                 </file>
@@ -2341,9 +2350,6 @@
             </group>
             <file>
                 <name>$PROJ_DIR$\pac55xx_sdk\src\hs_functions.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\pac55xx_sdk\src\isr_TimerC.c</name>
             </file>
         </group>
         <file>

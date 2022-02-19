@@ -14,7 +14,11 @@
 #ifndef CAN_FUNC_H
 #define CAN_FUNC_H
 
-#include "pac5xxx.h"
+//#include "pac5xxx.h"
+#define INCLUDE_EXTERNS
+#include "common.h"
+
+//#include "pac5xxx.h"
 #include "pac5xxx_gpio.h"
 #include "pac5xxx_can.h"
 

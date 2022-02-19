@@ -11,7 +11,8 @@
 //
 //=============================================================================
 
-#include "pac5xxx.h"
+//#include "pac5xxx.h"
+#define INCLUDE_EXTERNS
 #include "common.h"
 
 PAC5XXX_RAMFUNC void GpioC_IRQHandler(void)

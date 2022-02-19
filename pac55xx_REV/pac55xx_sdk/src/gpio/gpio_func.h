@@ -14,6 +14,10 @@
 #ifndef GPIO_FUNC_H
 #define GPIO_FUNC_H
 
+//#include "pac5xxx.h"
+#define INCLUDE_EXTERNS
+#include "common.h"
+
 #include "stdio.h"
 #include "pac5xxx.h"
 #include "common.h"

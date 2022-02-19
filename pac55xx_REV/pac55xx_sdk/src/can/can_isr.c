@@ -11,7 +11,9 @@
 //
 //=============================================================================
 
-#include "pac5xxx.h"
+//#include "pac5xxx.h"
+#define INCLUDE_EXTERNS
+#include "common.h"
 
 PAC5XXX_RAMFUNC void CAN_IRQHandler(void)
 {
@@ -38,4 +40,10 @@ PAC5XXX_RAMFUNC void CAN_IRQHandler(void)
     }
     rx_flag = 1;
     PAC55XX_CAN->ISR_SR_CMR_MR = (PAC55XX_CAN->ISR_SR_CMR_MR & 0x00FFFFFF) | ISR_RI; // Clear RX interrupt
+    
+    //can_transmit(rx_dataLen, rx_id + 1, rx_data);
+
+    update_motor_params();
+    
+    
 }

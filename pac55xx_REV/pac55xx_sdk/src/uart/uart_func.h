@@ -11,8 +11,12 @@
 //
 //=============================================================================
  
+
+//#include "pac5xxx.h"
+#define INCLUDE_EXTERNS
+#include "common.h"
 #include "stdio.h"
-#include "pac5xxx.h"
+//#include "pac5xxx.h"
 #include "common.h"
 #include "pac5xxx_uart.h"
 

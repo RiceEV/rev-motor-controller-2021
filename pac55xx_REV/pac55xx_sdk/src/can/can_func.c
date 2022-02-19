@@ -11,7 +11,9 @@
 //
 //=============================================================================
 
-#include "pac5xxx.h"
+//#include "pac5xxx.h"
+#define INCLUDE_EXTERNS
+#include "common.h"
 
 uint8_t tx_data[8] = {0,1,2,3,4,5,6,7};
 uint8_t rx_data[8];
@@ -169,12 +171,12 @@ void can_baud(CAN_BAUD_TYPE baud)
 
 void can_init(void)
 {
-    can_io_config(CAN_PE67);
+    can_io_config(CAN_PE23);
 
     PAC55XX_CAN->MR.RM = 1;			// CAN in reset mode, in order to configure CAN module
     PAC55XX_CAN->MR.AFM = 1;		// Single filter scheme
 
-    can_baud(CAN_BAUD_250KHz);	
+    can_baud(CAN_BAUD_50KHz);	
 
     PAC55XX_CAN->BTR0.SJW = 1;		// Synchronization jump width
     PAC55XX_CAN->BTR1.SAM = 0;		// Bus is sampled once 
@@ -251,3 +253,4 @@ void can_transmit(uint8_t dataLen, uint16_t id, uint8_t * data)
 	
     PAC55XX_CAN->CMR.TR = 1;	// Request transmit
 }
+
