@@ -2,6 +2,7 @@ main.pbi: \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\driver\pac5xxx_driver_timer.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\common\common.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\init\init.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\state_machine\state_machine.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\can\can_func.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\uart\uart_func.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx.h \

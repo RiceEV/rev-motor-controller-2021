@@ -3045,6 +3045,15 @@
                 </file>
             </group>
             <group>
+                <name>state_machine</name>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\state_machine\state_machine.c</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\state_machine\state_machine.h</name>
+                </file>
+            </group>
+            <group>
                 <name>uart</name>
                 <file>
                     <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_func.c</name>

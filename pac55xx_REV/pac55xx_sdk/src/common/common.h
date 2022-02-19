@@ -23,6 +23,10 @@
 #include "pac5xxx_tile_signal_manager.h"
 #include "pac5xxx_tile_system_manager.h"
 
+//#include "pac5xxx_driver_adc.h"
+
+#include "state_machine/state_machine.h"
+
 #define APP_RAMFUNC PAC5XXX_RAMFUNC
 
 typedef enum
@@ -132,9 +136,11 @@ EXTERN uint32_t millisecond;
 // function prototypes
 
 PAC5XXX_RAMFUNC void update_motor_params();
-void commutate(uint32_t ccrn);
+PAC5XXX_RAMFUNC void commutate(uint32_t ccrn);
 void motor_pwm_disable();
 void motor_pwm_enable();
+void oc_reset(void);
+void GpioA_IRQHandler(void);
 void Set_Dead_Time(void);
 
 
@@ -147,6 +153,11 @@ EXTERN uint32_t lp_over_current_limit;
 EXTERN uint32_t module_enable_bits;
 EXTERN uint32_t current_speed;
 
+
+// State machine 
+
+
+EXTERN uint32_t SMS_State;
 
 
 
@@ -180,7 +191,7 @@ EXTERN uint32_t current_speed;
 
 // System's Definitions
 
-#define RSENSE_mOHMS		10
+#define RSENSE_mOHMS	        10
 #define HP_IOCP_AMPS		31					//Desired OCP Current in Amps
 #define LP_IOCP_AMPS		31      				//Desired OCP Current in Amps
 
@@ -295,16 +306,16 @@ EXTERN uint32_t current_speed;
 	#define	DIFFAMP_GAIN_OPT0			7
 #endif
 
-#if defined (PAC5523) || defined (PAC5524) || defined (PAC5556)
+//#if defined (PAC5523) || defined (PAC5524) || defined (PAC5556)
 //***********************************************************************
 // HP/LP Over Current Protection (OCP) Defines
 //#define HP_IOCP_AMPS			xx					//Defined on bldc_hw_select.h
 //#define LP_IOCP_AMPS			xx					//Defined on bldc_hw_select.h
 //#define RSENSE_mOHMS			xx					//Defined on bldc_hw_select.h
-#define	HP_OCP_DEF				(HP_IOCP_AMPS * 255 * RSENSE_mOHMS) / (2.5 * 1000)
-#define	LP_OCP_DEF				511 + (LP_IOCP_AMPS * DIFFAMP_GAIN_X * 511 * RSENSE_mOHMS) / (1.25 * 1000)
+//#define	HP_OCP_DEF				(HP_IOCP_AMPS * 255 * RSENSE_mOHMS) / (2.5 * 1000)
+//#define	LP_OCP_DEF				511 + (LP_IOCP_AMPS * DIFFAMP_GAIN_X * 511 * RSENSE_mOHMS) / (1.25 * 1000)
 
-#elif defined (PAC5527) || defined (PAC5532)
+//#elif defined (PAC5527) || defined (PAC5532)
 //***********************************************************************
 // HP/LP Over Current Protection (OCP) Defines
 //#define HP_IOCP_AMPS			xx					//Defined on bldc_hw_select.h
@@ -312,7 +323,7 @@ EXTERN uint32_t current_speed;
 //#define RSENSE_mOHMS			xx					//Defined on bldc_hw_select.h
 #define	HP_OCP_DEF				(uint32_t)511 + (HP_IOCP_AMPS * DIFFAMP_GAIN_X * 511 * RSENSE_mOHMS) / (1.25 * 1000)
 #define	LP_OCP_DEF				(uint32_t)511 + (LP_IOCP_AMPS * DIFFAMP_GAIN_X * 511 * RSENSE_mOHMS) / (1.25 * 1000)
-#endif
+//#endif
 
 //***********************************************************************
 // HPOPT and LPOPT

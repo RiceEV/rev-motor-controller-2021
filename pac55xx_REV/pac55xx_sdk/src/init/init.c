@@ -272,7 +272,8 @@ void cafe_init(void)
 
 	// Disable both HS and LS drivers on PR event (nHSPRM=1, nLSPRM=1);
 	// Prop Delay 0 ns; Enable Break Before Make
-	pac5xxx_tile_register_write(ADDR_CFGDRV1, 0x0D);
+	//pac5xxx_tile_register_write(ADDR_CFGDRV1, 0x0D);              
+        pac5xxx_tile_register_write(ADDR_CFGDRV1, 0x01);                // only bbm
 	// Cycle By Cycle on Diff Amp AIO10/32/54. Disable only high side
 	pac5xxx_tile_register_write(ADDR_CFGDRV2, 0x1D);
 	// Cycle By Cycle on Diff Amp AIO10/32/54 compared against LPDAC
@@ -286,11 +287,11 @@ void cafe_init(void)
 	pac5xxx_tile_register_write(ADDR_SIGSET, 0x0C);
 
 	//Configure Sensorless Comparators
-	pac5xxx_tile_register_write(ADDR_CFGAIO6, 0x26);
+	//pac5xxx_tile_register_write(ADDR_CFGAIO6, 0x26);
 
-	pac5xxx_tile_register_write(ADDR_CFGAIO7, (0xC0 + COMP_POL));			// MODE7[1:0] = 11b (special mode)
-	pac5xxx_tile_register_write(ADDR_CFGAIO8, (0xD0 + COMP_POL));			// MODE8[1:0] = 11b (special mode), OPT8[1:0] = 01b (bypass FF, select MUX out for nIRQ2/POS), POL8 = 0 (act high), MUX[2:0] = n/a
-	pac5xxx_tile_register_write(ADDR_CFGAIO9, SLCOMP7);			// MODE9[1:0] = 01b (CT Vfilt), OPT9[1:0] = 0bxx (AIO7), POL9 = 0 (act high), MUX[2:0] = n/a
+	//pac5xxx_tile_register_write(ADDR_CFGAIO7, (0xC0 + COMP_POL));			// MODE7[1:0] = 11b (special mode)
+	//pac5xxx_tile_register_write(ADDR_CFGAIO8, (0xD0 + COMP_POL));			// MODE8[1:0] = 11b (special mode), OPT8[1:0] = 01b (bypass FF, select MUX out for nIRQ2/POS), POL8 = 0 (act high), MUX[2:0] = n/a
+	//pac5xxx_tile_register_write(ADDR_CFGAIO9, SLCOMP7);			// MODE9[1:0] = 01b (CT Vfilt), OPT9[1:0] = 0bxx (AIO7), POL9 = 0 (act high), MUX[2:0] = n/a
 
 	// HYSMODE[7] = 1b (0/20/40/80), HYSAIO7[3:0] = 1010b (40/40)
 	pac5xxx_tile_register_write(ADDR_SPECCFG0, SPECCFG0_CONFIG);

@@ -5,7 +5,7 @@
 	
 //const uint8_t next_val[] = {0, 'D', 'E', 'A', 'C', 'B', 'F'};
 
-void commutate(uint32_t ccrn){
+PAC5XXX_RAMFUNC void commutate(uint32_t ccrn){
   
   //volatile uint8_t hall_sensor_value = PAC55XX_GPIOD->IN.w & 0x07;
   hall_sensor_value = PAC55XX_GPIOD->IN.w & 0x07;
@@ -68,7 +68,43 @@ void commutate(uint32_t ccrn){
    
    if (next_commutation_state != prev_val) {
     prev_val = next_commutation_state;
-
+ /*   
+    switch(hall_sensor_value) {
+    
+  case 1:
+    uart_write_one(UARTB, 'A');
+    //position = 2;
+    break;
+    
+  case 2:
+    uart_write_one(UARTB, 'B');
+    //position = 4;
+    break;
+    
+  case 3:
+    uart_write_one(UARTB, 'C');
+    //position = 3;
+    break;
+    
+  case 4:
+    uart_write_one(UARTB, 'D');
+    //position = 0;
+    break;
+    
+  case 5:
+    uart_write_one(UARTB, 'E');
+    //position = 1;
+    break;
+    
+    
+  case 6:
+    uart_write_one(UARTB, 'F');
+    uart_write_one(UARTB, '\n');
+    //position = 5;
+    break;
+    
+  }
+*/
    
     if (next_commutation_state != 0xFF)
   {

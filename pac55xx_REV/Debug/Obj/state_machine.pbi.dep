@@ -1,5 +1,5 @@
-can_func.pbi: \
-  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\can\can_func.c \
+state_machine.pbi: \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\state_machine\state_machine.c \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\common\common.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\CMSIS\Core\Include\core_cm4.h \

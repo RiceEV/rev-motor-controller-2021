@@ -45,4 +45,5 @@ uart_func.pbi: \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx_uart.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\can\can_func.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\peripheral\pac5xxx_can.h \
+  C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\state_machine/state_machine.h \
   C:\Users\olima\OneDrive\REV\MotorController2021\rev-motor-controller-2021\pac55xx_REV\pac55xx_sdk\src\uart/uart_func.h

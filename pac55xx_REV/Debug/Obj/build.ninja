@@ -39,6 +39,7 @@ build isr_TimerA.pbi : index isr_TimerA.xcl
 build isr_TimerB.pbi : index isr_TimerB.xcl
 build isr_TimerC.pbi : index isr_TimerC.xcl
 build isr_TimerD.pbi : index isr_TimerD.xcl
+build state_machine.pbi : index state_machine.xcl
 build uart_func.pbi : index uart_func.xcl
 build uart_isr.pbi : index uart_isr.xcl
 build hs_functions.pbi : index hs_functions.xcl
@@ -46,8 +47,8 @@ build main.pbi : index main.xcl
 build pac55xx_simple_part0.pbi : link pac5xxx_driver_adc.pbi pac5xxx_driver_can.pbi pac5xxx_driver_gpio.pbi pac5xxx_driver_socbridge.pbi pac5xxx_driver_system.pbi
 build pac55xx_simple_part1.pbi : link pac5xxx_driver_tile_socbridge.pbi pac5xxx_driver_timer.pbi pac5xxx_driver_uart.pbi can_func.pbi can_isr.pbi
 build pac55xx_simple_part2.pbi : link common.pbi gpio_func.pbi gpio_isr.pbi init.pbi isr_Stubs.pbi
-build pac55xx_simple_part3.pbi : link isr_TimerA.pbi isr_TimerB.pbi isr_TimerC.pbi isr_TimerD.pbi uart_func.pbi
-build pac55xx_simple_part4.pbi : link uart_isr.pbi hs_functions.pbi main.pbi
+build pac55xx_simple_part3.pbi : link isr_TimerA.pbi isr_TimerB.pbi isr_TimerC.pbi isr_TimerD.pbi state_machine.pbi
+build pac55xx_simple_part4.pbi : link uart_func.pbi uart_isr.pbi hs_functions.pbi main.pbi
 build pac55xx_simple.pbd : link pac55xx_simple_part0.pbi pac55xx_simple_part1.pbi pac55xx_simple_part2.pbi pac55xx_simple_part3.pbi pac55xx_simple_part4.pbi
 build pac55xx_simple.pbw : browsedata pac55xx_simple.pbd
 

@@ -101,6 +101,7 @@ int main(void)
     {
       while(!millisecond);
         millisecond = 0;
+        state_machine();
         //tx_data[0] = 0xF0;
         //tx_data[1] = (uint8_t)(avg_speed >> 8) & 0xFF;
       //tx_data[2] = (uint8_t)(avg_speed & 0xFF);
