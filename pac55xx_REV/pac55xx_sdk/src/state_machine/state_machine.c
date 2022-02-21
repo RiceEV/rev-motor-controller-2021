@@ -13,7 +13,11 @@ void state_machine(void)
 	{
           
         case SMS_Idle:
-                    //do nothing
+                   
+            // If motor v slow / stopped
+          
+            stopped = 1;
+          
             break;
 
 
@@ -24,8 +28,8 @@ void state_machine(void)
 		PAC55XX_TIMERC->CTL.MODE = TxCTL_MODE_DISABLED;
 		PAC55XX_TIMERC->CTL.CLR = 1;
 
-		
-		//pwm duty comes from CAN
+                
+                stopped = 1;
 		
 
 
@@ -60,7 +64,11 @@ void state_machine(void)
 
 	case SMS_Speed_Control_Loop:
 		
-			//pwm duty comes from GUI
+          //if (accel_factor < target_accel_factor) {
+            //accel_factor += SPEED_INCREMENT_UNIT;
+          //}
+            
+			
 			
 		break;
 
@@ -69,6 +77,7 @@ void state_machine(void)
 		break;
 
 	case SMS_Brake_Apply:
+            motor_pwm_disable();
 		
 		break;
 
@@ -78,8 +87,10 @@ void state_machine(void)
 			SMS_State = SMS_Idle;
 			
 		break;
-               
-	
+                
+        case SMS_Stationary_Check:
+      
+          break;
 	}
 }
 

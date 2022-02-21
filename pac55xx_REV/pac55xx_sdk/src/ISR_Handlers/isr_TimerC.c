@@ -7,9 +7,21 @@
 
 void TimerC_IRQHandler(void)
 {
+  
+  
+  
+  // NOTES
+  /**
+   * At higher RPMS, motor begins to jump when commutation is 
+   * purely interrupt based. Leaving the interrupt flag uncleared
+   * (essentially an infinite loop calling commutate) fixes this issue
+   * but is overkill at lower rpms. Need to figure out a solution here
+   *
+   */
+  
   //uart_trig();
   
-  commutate(firstcomm);
+  /*commutate(firstcomm);
   
   PAC55XX_TIMERC->INT.BASEIF = 1;
   PAC55XX_TIMERC->INT.CCR0IF = 1;
@@ -19,19 +31,19 @@ void TimerC_IRQHandler(void)
   PAC55XX_TIMERC->INT.CCR4IF = 1;
   PAC55XX_TIMERC->INT.CCR5IF = 1;
   PAC55XX_TIMERC->INT.CCR6IF = 1;
-  PAC55XX_TIMERC->INT.CCR7IF = 1;
-  
+  PAC55XX_TIMERC->INT.CCR7IF = 1;*/
+ 
   
   //tx_data[0] = (PAC55XX_TIMERB->CTR.COUNTER >> 8) & 0xFF;
   //tx_data[0] = PAC55XX_TIMERB->CTR.COUNTER & 0xFF;
   
   //can_transmit(2, 0x34, tx_data);
   
-
+  stopped = 0;
           if (PAC55XX_TIMERC->INT.BASEIF)
                 {       
                     //uart_write_one(UARTB, 'A');
-                avg_speed_array[avg_speed_index] += PAC55XX_TIMERC->PRD.PERIOD;
+                //avg_speed_array[avg_speed_index] += PAC55XX_TIMERC->PRD.PERIOD;
 		commutate(pwmc_base);
 		PAC55XX_TIMERC->INT.BASEIF = 1;         
                 

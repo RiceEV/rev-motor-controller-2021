@@ -87,13 +87,14 @@ int main(void)
     rpm_measure_init();
     cafe_init();
     can_init();
-    //motor_pwm_disable();
+    motor_pwm_disable();
     __enable_irq();
     
-    
-    //while(motor_ready == 0);
+
    
-    
+    // Init complete, convey to aux board
+    tx_data[0] = MOTOR_ID;
+    can_transmit(1, INIT_COMPLETE_NOTIFY, tx_data); 
     
     
 
@@ -102,6 +103,8 @@ int main(void)
       while(!millisecond);
         millisecond = 0;
         state_machine();
+        tx_data[0] = 0xAA;
+        //can_transmit(1, 0x0, tx_data);
         //tx_data[0] = 0xF0;
         //tx_data[1] = (uint8_t)(avg_speed >> 8) & 0xFF;
       //tx_data[2] = (uint8_t)(avg_speed & 0xFF);

@@ -19,6 +19,8 @@ PAC5XXX_RAMFUNC void update_motor_params() {
       motor_pwm_disable();
       tx_data[0] = MOTOR_ID;
       can_transmit(1, SHUTDOWN_ACK, tx_data);
+      
+      SMS_State = SMS_Idle;
     }
     break;
     
@@ -37,18 +39,26 @@ PAC5XXX_RAMFUNC void update_motor_params() {
       motor_dir = 0;
    
     
-        
-    oc_reset();
-    
     PAC55XX_TIMER_SEL->CCTR4.CTR = 1;
     PAC55XX_TIMER_SEL->CCTR5.CTR = 1;
     PAC55XX_TIMER_SEL->CCTR6.CTR = 1;
-    
+   
+       
     
     motor_ready = 1;
     motor_pwm_enable();
     commutate(firstcomm);
+    
+    stopped = 0;
+    SMS_State = SMS_Speed_Control_Loop;
   break;
+  
+  case OC_RESET:
+    oc_reset();
+    
+    SMS_State = SMS_Idle;
+    break;
+    
   
 case BRAKE:
   
@@ -56,23 +66,32 @@ case BRAKE:
   
 case ACCELERATE:
   
+    stopped = 0;
     accel_factor =  pwm_period_div256  * (uint32_t)(rx_data[0]) ;
-    
-    
-    //PAC55XX_TIMER_SEL->CCTR0.CTR = pwm_period_ticks >> 1;
-    //PAC55XX_TIMER_SEL->CCTR1.CTR = pwm_period_ticks >> 1;
-    //PAC55XX_TIMER_SEL->CCTR2.CTR = pwm_period_ticks >> 1;
-
-  
+    //target_accel_factor =  pwm_period_div256  * (uint32_t)(rx_data[0]) ;
+   
     PAC55XX_TIMER_SEL->CCTR4.CTR = accel_factor;
     PAC55XX_TIMER_SEL->CCTR5.CTR = accel_factor;
     PAC55XX_TIMER_SEL->CCTR6.CTR = accel_factor;
     
+    SMS_State = SMS_Speed_Control_Loop;
+    
     break;
     
+case SET_MOTOR_DIRECTION:
+
+    
+  
+  if (stopped) {
+    if (rx_data[0] == 0xF0)
+      motor_dir = 1;
+    else if (rx_data[0] == 0x0F)
+      motor_dir = 0;
+  }
+    break;
+    
+    
 case GET_MOTOR_SPEED:
-  tx_data[0] = pac5xxx_tile_register_read(ADDR_STATDRV);
-  can_transmit(1, 0x0C, tx_data);
   
   if (rx_data[0] == MOTOR_ID){
     tx_data[0] = MOTOR_ID;
@@ -84,8 +103,15 @@ case GET_MOTOR_SPEED:
     
   }
   break;
+  case CAN_PING:
+  if (rx_data[0] == MOTOR_ID) {
+  for( int i = 0; i < rx_dataLen; i++)
+    tx_data[i] = rx_data[i];
   
+  can_transmit(rx_dataLen, CAN_PING, tx_data);
  
+  }
+              break;
   }
   
   
@@ -156,22 +182,26 @@ void GpioA_IRQHandler(void)
 		__disable_irq();
 
 		register_val = pac5xxx_tile_register_read(ADDR_PROTSTAT);
+                
+                tx_data[0] = MOTOR_ID;
+                can_transmit(1, CONTROLLER_OC, tx_data);
 
 		if (register_val & ((NLP54INTM_MASK << 2) + (NLP32INTM_MASK << 1) + (NLP10INTM_MASK << 0)))		//LPROT Interrupts
 			{
                           //app_status |= current_warning;
-			tx_data[0] = 0x0C;
-                        can_transmit(1, 0x0C, tx_data);
+			
+
 			}
 		else if (register_val & ((NHP54INTM_MASK << 6) + (NHP32INTM_MASK << 5) + (NHP10INTM_MASK << 4)))							//HPROT Interrupts
 			{
 			motor_pwm_disable();
 			//app_status |= status_over_current;
-                        tx_data[0] = 0xAA;
-                        tx_data[2] = 0x0C;
-                        can_transmit(2, 0x0C, tx_data);
+                        can_transmit(1, FATAL_ERROR, tx_data[0]);
+                        
+                        
 			}
 
+            
 		pac5xxx_tile_register_write(ADDR_PROTSTAT, PROTINTM_MASK);
 
 		PAC55XX_GPIOA->INTCLEAR.P7 = 1;

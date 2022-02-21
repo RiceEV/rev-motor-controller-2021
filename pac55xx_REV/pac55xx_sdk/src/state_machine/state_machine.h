@@ -19,7 +19,8 @@ typedef enum
 	SMS_Auto_On_Wait,
 	SMS_Pot_On_Wait,
 	SMS_IPD_Run_Once,		//Not used on Hall Sensor - Compile place holder
-	SMS_IPD_Run_Continuous	//Not used on Hall Sensor - Compile place holder
+	SMS_IPD_Run_Continuous,	//Not used on Hall Sensor - Compile place holder
+        SMS_Stationary_Check
 }SMS_States;
 
 

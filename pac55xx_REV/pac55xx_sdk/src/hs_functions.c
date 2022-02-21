@@ -66,7 +66,7 @@ PAC5XXX_RAMFUNC void commutate(uint32_t ccrn){
    __enable_irq();
    
    
-   if (next_commutation_state != prev_val) {
+   if ((next_commutation_state != prev_val) || ccrn == firstcomm) {
     prev_val = next_commutation_state;
  /*   
     switch(hall_sensor_value) {
@@ -209,10 +209,10 @@ void motor_pwm_enable(void)
 	__disable_irq();
 
 	//NVIC_DisableIRQ(TimerD_IRQn);
-	//NVIC_EnableIRQ(TimerC_IRQn);
+	NVIC_EnableIRQ(TimerC_IRQn);
 
 	//PAC55XX_TIMERD->CTL.BASEIE = 1;
-	//PAC55XX_TIMERC->CTL.BASEIE = 1;
+	PAC55XX_TIMERC->CTL.BASEIE = 1;
 
 
 	PAC55XX_GPIOB->OUT.w = 0;			//PORTB OUT GPIO = 0;

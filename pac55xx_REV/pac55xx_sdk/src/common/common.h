@@ -47,9 +47,20 @@ typedef enum
 
 // Motor Variables & Constants
 
-EXTERN uint32_t motorspeed;
+EXTERN uint32_t accel_factor;
+EXTERN uint32_t target_accel_factor;
+
+EXTERN uint32_t motor_rpm;
+EXTERN uint32_t target_motor_rpm;
 
 EXTERN uint8_t motor_dir;
+EXTERN uint8_t target_motor_dir;
+
+EXTERN uint32_t motorspeed;
+
+EXTERN uint8_t stopped;
+
+
 
 EXTERN uint8_t hall_sensor_value;
 EXTERN uint8_t next_commutation_state;
@@ -60,6 +71,8 @@ EXTERN uint32_t avg_speed_array[6];
 EXTERN uint32_t avg_speed;
 EXTERN uint32_t last_comm_ctr;
 EXTERN uint32_t num_periods;
+
+
 
 
 
@@ -115,12 +128,14 @@ EXTERN uint32_t num_periods;
 #define PWM_SWITCH_FREQ 50
 #define TIMER_X_FREQ_CNV 100000
         
+#define SPEED_INCREMENT_UNIT 0xF
+        
 
 
 EXTERN uint32_t phase_pwm_period;
 EXTERN uint32_t pwm_period_ticks; 
 EXTERN uint32_t pwm_period_div256;
-EXTERN uint32_t accel_factor;
+
 
 EXTERN uint32_t dt_leading_ticks, dt_trailing_ticks;
 
@@ -132,6 +147,8 @@ EXTERN uint16_t period;
 EXTERN uint16_t motor_ready;
 
 EXTERN uint32_t millisecond;
+
+
 
 // function prototypes
 
@@ -162,17 +179,23 @@ EXTERN uint32_t SMS_State;
 
 
 
+
 // CAN MESSAGE IDS
 
 #define SHUTDOWN                0x00
-
 #define FATAL_ERROR             0x01
+#define HEALTH_CHECK            0x02
+#define CONTROLLER_OC           0x03
+#define OC_RESET                0x04
+#define INIT_COMPLETE_NOTIFY     0x05
+#define CAN_PING                0x06
 
 #define SHUTDOWN_ACK            0x02
 
 #define INIT_MOTOR_PARAMS       0x10
 #define BRAKE                   0x11
 #define ACCELERATE              0x12
+#define SET_MOTOR_DIRECTION     0x13
 
 #define GET_MOTOR_SPEED         0x20
 

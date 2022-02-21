@@ -11,8 +11,11 @@
  */
 void TimerB_IRQHandler(void)
 {
-  
+    if (num_periods < 0x0FFF)
       num_periods++;
+    else 
+      stopped = 1;
+      
 	if (PAC55XX_TIMERB->INT.BASEIF)
 		{
 		PAC55XX_TIMERB->INT.BASEIF = 1;
