@@ -90,7 +90,7 @@ int main(void)
     motor_pwm_disable();
     __enable_irq();
     
-
+    SMS_State = SMS_Idle;
    
     // Init complete, convey to aux board
     tx_data[0] = MOTOR_ID;

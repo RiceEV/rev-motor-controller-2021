@@ -15,7 +15,7 @@ PAC5XXX_RAMFUNC void update_motor_params() {
   switch(rx_id){
     
   case SHUTDOWN:
-    if (rx_data[0] == MOTOR_ID){
+    if ((rx_data[0] & MOTOR_ID) == MOTOR_ID){
       motor_pwm_disable();
       tx_data[0] = MOTOR_ID;
       can_transmit(1, SHUTDOWN_ACK, tx_data);
@@ -33,9 +33,9 @@ PAC5XXX_RAMFUNC void update_motor_params() {
     avg_speed_index = 0;
     
     motor_dir = 0;
-    if (rx_data[0] == 0xF0)
+    if ((rx_data[0] & 0xF0) == 0xF0)
       motor_dir = 1;
-    else if (rx_data[0] == 0x0F)
+    else if ((rx_data[0] & 0x0F)  == 0x0F)
       motor_dir = 0;
    
     
@@ -45,12 +45,12 @@ PAC5XXX_RAMFUNC void update_motor_params() {
    
        
     
-    motor_ready = 1;
+    //motor_ready = 1;
     motor_pwm_enable();
-    commutate(firstcomm);
+    //commutate(firstcomm);
     
     stopped = 0;
-    SMS_State = SMS_Speed_Control_Loop;
+    SMS_State = SMS_Align_6S;
   break;
   
   case OC_RESET:
@@ -60,7 +60,10 @@ PAC5XXX_RAMFUNC void update_motor_params() {
     break;
     
   
-case BRAKE:
+case BRAKE_APPLY:
+  
+  motor_pwm_disable();
+  SMS_State = SMS_Brake_Apply; 
   
   break;
   
@@ -80,8 +83,6 @@ case ACCELERATE:
     
 case SET_MOTOR_DIRECTION:
 
-    
-  
   if (stopped) {
     if (rx_data[0] == 0xF0)
       motor_dir = 1;
@@ -89,6 +90,17 @@ case SET_MOTOR_DIRECTION:
       motor_dir = 0;
   }
     break;
+  
+  
+case BRAKE_END:
+  
+  PAC55XX_TIMER_SEL->CCTR4.CTR = 1;
+  PAC55XX_TIMER_SEL->CCTR5.CTR = 1;
+  PAC55XX_TIMER_SEL->CCTR6.CTR = 1;
+   
+  motor_pwm_enable();
+  SMS_State = SMS_Brake_End;
+    
     
     
 case GET_MOTOR_SPEED:
@@ -105,15 +117,16 @@ case GET_MOTOR_SPEED:
   break;
   case CAN_PING:
   if (rx_data[0] == MOTOR_ID) {
-  for( int i = 0; i < rx_dataLen; i++)
-    tx_data[i] = rx_data[i];
+    for( int i = 0; i < rx_dataLen; i++)
+      tx_data[i] = rx_data[i];
   
-  can_transmit(rx_dataLen, CAN_PING, tx_data);
+    can_transmit(rx_dataLen, CAN_PING, tx_data);
  
   }
               break;
   }
-  
+  //tx_data[0] = SMS_State;
+  //can_transmit(1, 0xCC, tx_data);
   
 }
 
@@ -196,7 +209,7 @@ void GpioA_IRQHandler(void)
 			{
 			motor_pwm_disable();
 			//app_status |= status_over_current;
-                        can_transmit(1, FATAL_ERROR, tx_data[0]);
+                        can_transmit(1, FATAL_ERROR, tx_data);
                         
                         
 			}

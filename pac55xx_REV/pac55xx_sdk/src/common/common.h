@@ -187,15 +187,16 @@ EXTERN uint32_t SMS_State;
 #define HEALTH_CHECK            0x02
 #define CONTROLLER_OC           0x03
 #define OC_RESET                0x04
-#define INIT_COMPLETE_NOTIFY     0x05
+#define INIT_COMPLETE_NOTIFY    0x05
 #define CAN_PING                0x06
 
 #define SHUTDOWN_ACK            0x02
 
 #define INIT_MOTOR_PARAMS       0x10
-#define BRAKE                   0x11
-#define ACCELERATE              0x12
+#define ACCELERATE              0x11
+#define BRAKE_APPLY             0x12
 #define SET_MOTOR_DIRECTION     0x13
+#define BRAKE_END               0x14
 
 #define GET_MOTOR_SPEED         0x20
 

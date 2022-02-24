@@ -77,13 +77,15 @@ void state_machine(void)
 		break;
 
 	case SMS_Brake_Apply:
-            motor_pwm_disable();
+            
+            //motor_pwm_disable();
+            SMS_State = SMS_Brake_Decel;
 		
 		break;
 
 	case SMS_Brake_End:
 		
-			//motor_pwm_disable();
+			//motor_pwm_enable();
 			SMS_State = SMS_Idle;
 			
 		break;
