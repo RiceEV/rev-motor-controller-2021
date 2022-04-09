@@ -18,13 +18,13 @@ PERIPHERAL_VARIABLES peripheral;
 
 int main(void)
 {
-  
+  timer_app();
    system_init();
    uart_init(UARTB, 115200);
    adc_manual_init();
    ssp_init(SSPC, SSP_MS_MASTER);
   while(1) {
-   for(volatile int i = 0; i < 500000; i++);
+   for(volatile int i = 0; i < 10000; i++);
   uint16_t sample = adc_manual_convert_channel(ADCCTL_CHANNEL_ADC6);
   uart_write_one(UARTB, sample);
         uart_write_one(UARTB, sample << 8);

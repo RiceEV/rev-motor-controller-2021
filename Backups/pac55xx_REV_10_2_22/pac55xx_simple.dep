@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>4</fileVersion>
+    <fileChecksum>3181254384</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\pac55xx_sdk\device\pac5532.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\boot_IAR\startup_pac55xx_iar.s</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_can.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_adc.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_tile_socbridge.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_timer.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_adc.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_tile.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_can.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_crc.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_system.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_config.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_socbridge.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_uart.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_uart.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_gp_timers.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_gpio.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_rtc.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_scc.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_can.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_system.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_timer.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_memory.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_gpio.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_i2c.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_ssp.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_tile_driver_manager.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_adc.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_gpio.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_socbridge.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc_isr.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\pwm_func.xcl</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_app.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio_app.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\pwm_func.o</file>
+            <file>$TOOLKIT_DIR$\CMSIS\Core\Include\mpu_armv7.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio_isr.o</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tlf.a</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_app.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_func.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc_isr.xcl</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\timer\capture_func.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_isr.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc_func.xcl</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\init.c</file>
+            <file>$TOOLKIT_DIR$\CMSIS\Core\Include\cmsis_version.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\adc_app.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_app.o</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\aio_func.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_func.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio_func.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\aio_func.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\can_app.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\isr_TimerC.xcl</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\timer\pwm_driver_func.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\pwm_driver_func.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\isr_TimerC.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac55xx_simple.pbd</file>
+            <file>$PROJ_DIR$\Debug\Obj\qep_func.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_uart.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_adc.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_uart.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\qep_isr.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\capture_func.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_socbridge.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\can_func.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\aio_app.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio_func.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\pwm_driver_func.o</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_isr.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_tile_socbridge.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_gpio.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_gpio.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_isr.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\common.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\uart_app.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_adc.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\qep_func.xcl</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\timer\pwm_func.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\timer\qep_isr.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\uart_isr.xcl</file>
+            <file>$PROJ_DIR$\Debug\Exe\c.out</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_func.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\capture_func.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\qep_isr.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\can_isr.xcl</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_app.xcl</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\aio_app.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\init.o</file>
+            <file>$TOOLKIT_DIR$\CMSIS\Core\Include\cmsis_iccarm.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\init.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\c\iccarm_builtin.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\timer\qep_func.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_tile_signal_manager.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\common\common.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_app.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_func.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_tile_system_manager.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\can\can_func.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_app.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_func.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_func.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_timers.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_isr.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_isr.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\common\common.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\hs_functions.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\isr_TimerC.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_func.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\can\can_func.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\can\can_isr.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_wwdt.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\init\init.c</file>
+            <file>$PROJ_DIR$\main.c</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\init\init.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_tile_power_manager.h</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\can\can_app.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\hs_functions.o</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\pac5xxx_sdk_version.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_can.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\aio_app.xcl</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\peripheral\pac5xxx_uart.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio_isr.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_timer.xcl</file>
+            <file>$PROJ_DIR$\pac55xx.icf</file>
+            <file>$PROJ_DIR$\Debug\Obj\can_isr.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup_pac55xx_iar.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_socbridge.xcl</file>
+            <file>$TOOLKIT_DIR$\CMSIS\Core\Include\cmsis_compiler.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\uart_isr.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\uart_func.xcl</file>
+            <file>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_isr.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\uart_func.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\uart_app.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\can_func.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_tile_socbridge.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\timer_func.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_system.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\hs_functions.xcl</file>
+            <file>$TOOLKIT_DIR$\CMSIS\Core\Include\core_cm4.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\can_app.xcl</file>
+            <file>$PROJ_DIR$\Debug\Obj\common.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_timer.o</file>
+            <file>$PROJ_DIR$\Debug\List\c.map</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_can.xcl</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tls.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\pac5xxx_driver_system.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\gpio_app.o</file>
+            <file>$PROJ_DIR$\..\..\pac55xx_REV\main.c</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 87 155</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\boot_IAR\startup_pac55xx_iar.s</name>
+            <outputs>
+                <tool>
+                    <name>AARM</name>
+                    <file> 134</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_tile_socbridge.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 76</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 144</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 7 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117 12</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_can.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 127</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 156</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 19 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_system.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 159</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 147</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 20 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_uart.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 65</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 67</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 14 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 23 11 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_timer.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 154</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 131</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 5 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_adc.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 82</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 66</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 6 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_gpio.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 78</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 77</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 23 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\driver\pac5xxx_driver_socbridge.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 70</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 135</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 12 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_app.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 51</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_app.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 52</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 93</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_func.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 48</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\capture_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 69</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 89</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\init.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 95</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 97</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 23 11 20 0 27 123 100 104</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\aio_func.c</name>
+            <outputs>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 56</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 88</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 145</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\pwm_driver_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 74</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 61</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\adc_isr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 31</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 44</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\pwm_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 38</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 32</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\qep_isr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 68</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 90</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\c.out</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 155</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 132 57 71 133 152 160 73 40 125 95 62 153 82 127 78 70 159 76 154 65 134 142 141 137 92 33 158 41</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\adc_aio\aio_app.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 72</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 128</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\qep_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 64</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 83</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\common\common.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 152</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 80</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_app.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 160</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 37</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\can\can_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 71</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 143</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_app.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 142</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 81</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 141</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 139</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 107 146 47 157 35 58 138 36 24 149 116 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 112 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\uart\uart_isr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 137</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 86</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_isr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 40</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 130</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\hs_functions.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 125</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 148</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\isr_TimerC.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 62</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 59</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\gpio\gpio_func.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 73</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 55</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 103 146 47 157 35 58 138 36 24 149 116 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 107 112 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\can\can_isr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 133</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 91</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\init\init.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 95</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 97</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117 122 5</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 153</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 150</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117 122 5</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\can\can_app.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 57</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 151</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 24 149 116 47 157 35 58 138 50 136 96 98 39 3 2 9 16 25 22 17 18 109 15 129 26 119 0 27 123 100 104 14 11 23 20 103 146 36 112 107 117</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_isr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 79</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 46</file>
+                </tool>
+            </outputs>
+        </file>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>ILINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>

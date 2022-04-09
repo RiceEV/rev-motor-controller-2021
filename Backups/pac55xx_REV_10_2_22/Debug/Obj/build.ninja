@@ -1,0 +1,53 @@
+#Generating source browse information for project pac55xx_simple
+
+
+#Abbreviations
+cc = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.4\common\bin\SourceIndexer.exe
+ll = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.4\common\bin\PbdLink.exe
+bd = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.4\common\bin\makeBrowseData.exe
+
+
+
+#Rules
+rule index
+  depfile = $out.dep
+  command = $cc -out=$out -f $in
+rule link
+  command = $ll -M $out $in
+rule browsedata
+  command = $bd $in -output  $out
+
+
+
+#Build steps
+build pac5xxx_driver_adc.pbi : index pac5xxx_driver_adc.xcl
+build pac5xxx_driver_can.pbi : index pac5xxx_driver_can.xcl
+build pac5xxx_driver_gpio.pbi : index pac5xxx_driver_gpio.xcl
+build pac5xxx_driver_socbridge.pbi : index pac5xxx_driver_socbridge.xcl
+build pac5xxx_driver_system.pbi : index pac5xxx_driver_system.xcl
+build pac5xxx_driver_tile_socbridge.pbi : index pac5xxx_driver_tile_socbridge.xcl
+build pac5xxx_driver_timer.pbi : index pac5xxx_driver_timer.xcl
+build pac5xxx_driver_uart.pbi : index pac5xxx_driver_uart.xcl
+build can_app.pbi : index can_app.xcl
+build can_func.pbi : index can_func.xcl
+build can_isr.pbi : index can_isr.xcl
+build common.pbi : index common.xcl
+build gpio_app.pbi : index gpio_app.xcl
+build gpio_func.pbi : index gpio_func.xcl
+build gpio_isr.pbi : index gpio_isr.xcl
+build init.pbi : index init.xcl
+build uart_app.pbi : index uart_app.xcl
+build uart_func.pbi : index uart_func.xcl
+build uart_isr.pbi : index uart_isr.xcl
+build hs_functions.pbi : index hs_functions.xcl
+build isr_TimerC.pbi : index isr_TimerC.xcl
+build main.pbi : index main.xcl
+build pac55xx_simple_part0.pbi : link pac5xxx_driver_adc.pbi pac5xxx_driver_can.pbi pac5xxx_driver_gpio.pbi pac5xxx_driver_socbridge.pbi pac5xxx_driver_system.pbi
+build pac55xx_simple_part1.pbi : link pac5xxx_driver_tile_socbridge.pbi pac5xxx_driver_timer.pbi pac5xxx_driver_uart.pbi can_app.pbi can_func.pbi
+build pac55xx_simple_part2.pbi : link can_isr.pbi common.pbi gpio_app.pbi gpio_func.pbi gpio_isr.pbi
+build pac55xx_simple_part3.pbi : link init.pbi uart_app.pbi uart_func.pbi uart_isr.pbi hs_functions.pbi
+build pac55xx_simple_part4.pbi : link isr_TimerC.pbi main.pbi
+build pac55xx_simple.pbd : link pac55xx_simple_part0.pbi pac55xx_simple_part1.pbi pac55xx_simple_part2.pbi pac55xx_simple_part3.pbi pac55xx_simple_part4.pbi
+build pac55xx_simple.pbw : browsedata pac55xx_simple.pbd
+
+

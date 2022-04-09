@@ -162,6 +162,7 @@ typedef enum IRQn
 #include "gpio_func.h"
 #include "uart_func.h"
 #include "can_func.h"
+#include "timer/timer_func.h"
 
 
 #include "common.h"

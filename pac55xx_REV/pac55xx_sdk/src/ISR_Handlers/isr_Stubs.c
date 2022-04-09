@@ -31,11 +31,6 @@ void ADC3_IRQHandler(void)
 
 }
 
-void ADC_IRQHandler(void)
-{
-  
-}
-
 
 void QEPA_IRQHandler(void)
 {

@@ -18,7 +18,7 @@
 //=====================================
 //#define TEST_TIMER_BASE
 //#define TEST_TIMER_SYNCHRONIZATION
-#define TEST_TIMER_PWM_OUTPUT
+//#define TEST_TIMER_PWM_OUTPUT
 //#define TEST_TIMER_CAPTURE
 //#define TEST_TIMER_PWM_SYMMETRIC
 //#define TEST_TIMER_PWM_ASYMMETRIC
@@ -35,8 +35,13 @@ void timer_app(void)
     __disable_irq();
 
     system_init();
-    uart_init(UARTC, 115200);
-    gpiox_debug_init();
+    //uart_init(UARTC, 115200);
+    //gpiox_debug_init();
+    
+    PAC55XX_SCC->PFMUXSEL.P2=  0;
+    PAC55XX_GPIOF->MODE.P2 = IO_PUSH_PULL_OUTPUT;
+    PAC55XX_GPIOF->OUTMASK.P2 = 0;
+    PAC55XX_GPIOF->OUT.P2 = 0;
     
 
 #ifdef TEST_TIMER_BASE

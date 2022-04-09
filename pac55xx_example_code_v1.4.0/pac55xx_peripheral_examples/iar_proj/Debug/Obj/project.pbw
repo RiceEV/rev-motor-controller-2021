@@ -76618,20 +76618,6 @@
     "scope": null
   },
   {
-    "ID": "c:timer_app.c@886@macro@TEST_TIMER_PWM_OUTPUT",
-    "What": "MacroDef",
-    "defdec": "Def",
-    "display": "TEST_TIMER_PWM_OUTPUT",
-    "location": {
-      "column": "9",
-      "line": "21",
-      "path": "C:\\Users\\olima\\OneDrive\\REV\\MotorController2021\\rev-motor-controller-2021\\pac55xx_example_code_v1.4.0\\pac55xx_peripheral_examples\\src\\timer\\timer_app.c"
-    },
-    "name": "TEST_TIMER_PWM_OUTPUT",
-    "origin": "project_file",
-    "scope": null
-  },
-  {
     "ID": "c:@F@timer_app",
     "What": "Function",
     "defdec": "Def",
@@ -77696,7 +77682,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@923@F@main@i",
+    "ID": "c:main.c@935@F@main@i",
     "What": "Variable",
     "defdec": "Def",
     "display": "i",
@@ -77710,7 +77696,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@964@F@main@sample",
+    "ID": "c:main.c@975@F@main@sample",
     "What": "Variable",
     "defdec": "Def",
     "display": "sample",
@@ -77724,7 +77710,7 @@
     "scope": null
   },
   {
-    "ID": "c:main.c@1188@F@main@data",
+    "ID": "c:main.c@1199@F@main@data",
     "What": "Variable",
     "defdec": "Def",
     "display": "data",

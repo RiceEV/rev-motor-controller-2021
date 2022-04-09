@@ -33,21 +33,25 @@ PAC5XXX_RAMFUNC void update_motor_params() {
     avg_speed_index = 0;
     
     motor_dir = 0;
-    if ((rx_data[0] & 0xF0) == 0xF0)
-      motor_dir = 1;
-    else if ((rx_data[0] & 0x0F)  == 0x0F)
+    if ((rx_data[0] & 0xF0) == 0xF0) {
+      if (MOTOR_ID == RIGHT_MOTOR) {
+        motor_dir = 1;
+      } else {
+        motor_dir = 0;
+      }
+    }
+    else if ((rx_data[0] & 0x0F)  == 0x0F) {
+      if (MOTOR_ID == RIGHT_MOTOR) {
       motor_dir = 0;
+      } else {
+        motor_dir = 1;
+      }
+    }
    
-    
-    PAC55XX_TIMER_SEL->CCTR4.CTR = 1;
-    PAC55XX_TIMER_SEL->CCTR5.CTR = 1;
-    PAC55XX_TIMER_SEL->CCTR6.CTR = 1;
+    accel_factor = 1;
+    accel(accel_factor);
    
-       
-    
-    //motor_ready = 1;
     motor_pwm_enable();
-    //commutate(firstcomm);
     
     stopped = 0;
     SMS_State = SMS_Align_6S;
@@ -68,14 +72,21 @@ case BRAKE_APPLY:
   break;
   
 case ACCELERATE:
-  
+    
+    
     stopped = 0;
     accel_factor =  pwm_period_div256  * (uint32_t)(rx_data[0]) ;
-    //target_accel_factor =  pwm_period_div256  * (uint32_t)(rx_data[0]) ;
-   
-    PAC55XX_TIMER_SEL->CCTR4.CTR = accel_factor;
-    PAC55XX_TIMER_SEL->CCTR5.CTR = accel_factor;
-    PAC55XX_TIMER_SEL->CCTR6.CTR = accel_factor;
+#ifdef SOFT_START
+    if (accel_factor <= PAC55XX_TIMER_SEL->CCTR4.CTR) {
+      accel(accel_factor);
+    }
+#else 
+    accel(accel_factor);
+    
+#endif
+    
+    PAC55XX_TIMERD->CCTR4.CTR = ((PAC55XX_TIMERD->CTR.COUNTER >> 8) & 0xFF) * (uint32_t)rx_data[0];
+     
     
     SMS_State = SMS_Speed_Control_Loop;
     
@@ -94,15 +105,18 @@ case SET_MOTOR_DIRECTION:
   
 case BRAKE_END:
   
-  PAC55XX_TIMER_SEL->CCTR4.CTR = 1;
-  PAC55XX_TIMER_SEL->CCTR5.CTR = 1;
-  PAC55XX_TIMER_SEL->CCTR6.CTR = 1;
+  accel_factor = 1;
+  accel(accel_factor);
+  
+  accel(1);
    
   motor_pwm_enable();
   SMS_State = SMS_Brake_End;
-    
-    
-    
+   break;
+   
+  case SET_FAN_SPEED:
+     PAC55XX_TIMERD->CCTR4.CTR = ((PAC55XX_TIMERD->CTR.COUNTER >> 8) & 0xFF) * (uint32_t)rx_data[0];
+      break;
 case GET_MOTOR_SPEED:
   
   if (rx_data[0] == MOTOR_ID){
@@ -115,6 +129,12 @@ case GET_MOTOR_SPEED:
     
   }
   break;
+    
+  case GET_PHASE_CURRENT: 
+  //if (rx_data[0] == MOTOR_ID) {
+  //tx_data[0] = MOTOR_ID;
+  //tx_data[1] = 
+    break;
   case CAN_PING:
   if (rx_data[0] == MOTOR_ID) {
     for( int i = 0; i < rx_dataLen; i++)
@@ -129,6 +149,14 @@ case GET_MOTOR_SPEED:
   //can_transmit(1, 0xCC, tx_data);
   
 }
+
+void accel(uint32_t acc){
+  
+  PAC55XX_TIMER_SEL->CCTR4.CTR = acc;
+  PAC55XX_TIMER_SEL->CCTR5.CTR = acc;
+  PAC55XX_TIMER_SEL->CCTR6.CTR = acc;
+}
+
 
 void Set_Dead_Time(void)
 {
@@ -222,6 +250,15 @@ void GpioA_IRQHandler(void)
 
 		__enable_irq();
 		}
+}
+
+void Differential_Amplifier_Calibrate(void)
+{
+	phase_u_offset = 0;
+	phase_v_offset = 0;
+	phase_w_offset = 0;
+	ADC_Counter = 512;
+	ADCSM_State = ADCSM_Calibrate;
 }
 
 

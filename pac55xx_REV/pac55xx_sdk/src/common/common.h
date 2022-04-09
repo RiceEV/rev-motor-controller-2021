@@ -1,9 +1,11 @@
-
+// MOTOR SETTINGS
 
 #define LEFT_MOTOR      0xF0
 #define RIGHT_MOTOR     0x0F
 
 #define MOTOR_ID        LEFT_MOTOR
+
+#define SOFT_START
 
 //#define APP_RAMFUNC __ramfunc
 
@@ -23,9 +25,13 @@
 #include "pac5xxx_tile_signal_manager.h"
 #include "pac5xxx_tile_system_manager.h"
 
+
+
 //#include "pac5xxx_driver_adc.h"
 
 #include "state_machine/state_machine.h"
+
+
 
 #define APP_RAMFUNC PAC5XXX_RAMFUNC
 
@@ -41,9 +47,26 @@ typedef enum
 	firstcomm
 } CCRNumbers;
 
+typedef enum
+{
+	ADCSM_Idle = 0,
+	ADCSM_Calibrate,
+	ADCSM_IPD_Commutate,
+	ADCSM_IPD_WaitForCurrentIncrease,
+	ADCSM_IPD_WaitDecay,
+	ADCSM_IPD_Exit,
+	ADCSM_SineWave,
+	ADCSM_SixStep,
+	ADCSM_IRegulate
+}ADCSM_States;
 
+#define ADC_CHANNEL_MASK	(1L << ADC0) + (1L << ADC6)	
+#define	ADC_SEQ_HBU_EDATA		EMUX_AIO10
+#define	ADC_SEQ_HBV_EDATA		EMUX_AIO32
+#define	ADC_SEQ_HBW_EDATA		EMUX_AIO54
 
-
+#define	ADCCTL_ADMUX_VIN	ADCCTL_ADMUX_AD3
+#define	ADC_SEQ_VMS_EDATA		SIGMGR_AB11
 
 // Motor Variables & Constants
 
@@ -73,48 +96,35 @@ EXTERN uint32_t last_comm_ctr;
 EXTERN uint32_t num_periods;
 
 
+// ADC 
+
+EXTERN uint32_t ADCSM_State;
+EXTERN uint32_t ADC_Counter;
+EXTERN uint32_t single_shunt_current;
+EXTERN uint32_t sample_delay;
+EXTERN uint32_t phase_u_offset;
+EXTERN uint32_t phase_v_offset;
+EXTERN uint32_t phase_w_offset;
+EXTERN uint32_t pot_volts_command;
+EXTERN uint32_t adc_gain, adc_gain_inv;
+EXTERN uint32_t adc_offset;
+
+
 
 
 
 #ifndef INCLUDE_EXTERNS
 	EXTERN const uint32_t psel_mask[2][6] = 			{{0x00010001, 0x00100010, 0x00100010, 0x01000100, 0x01000100, 0x00010001},{0x00010001, 0x00010001, 0x01000100, 0x01000100, 0x00100010, 0x00100010}};
-
-
 	EXTERN const uint8_t c_pwm_io_state[2][6] = 		{{0x04, 0x04, 0x01, 0x01, 0x02, 0x02},{0x04, 0x02, 0x02, 0x01, 0x01, 0x04}};
-	EXTERN const uint8_t c_pwm_hiz_state[2][6] = 		{{0x02, 0x01, 0x04, 0x02, 0x01, 0x04},{0x02, 0x04, 0x01, 0x02, 0x04, 0x01}};
-	EXTERN const uint8_t slcomp_mux[2][6] = 			{{SLCOMP8, SLCOMP7, SLCOMP9, SLCOMP8, SLCOMP7, SLCOMP9},{SLCOMP8, SLCOMP9, SLCOMP7, SLCOMP8, SLCOMP9, SLCOMP7}};
-	EXTERN const uint32_t slcomp_cross_polarity[2][6] = {{0x01, 0, 0x01, 0, 0x01, 0},{0, 0x01, 0, 0x01, 0, 0x01}};
-
-	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0x03,0x02,0xFF,0x01,0x04,0xFF,0x05,0x00},{0x00,0x01,0xFF,0x02,0x05,0xFF,0x04,0x03}};  	//Motor Code ASVX
 	EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x05,0x04,0x01,0x02,0x00,0xFF},{0xFF,0x00,0x04,0x05,0x02,0x01,0x03,0xFF}};		//Motor Code BLY17
-	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x05,0x01,0x00,0x03,0x04,0x02,0xFF},{0xFF,0x04,0x02,0x03,0x00,0x05,0x01,0xFF}};		//Motor Code ASPVT
-	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x04,0x00,0x05,0x02,0x03,0x01,0xFF},{0xFF,0x05,0x03,0x04,0x01,0x00,0x02,0xFF}};		//Motor Code ASRR
-	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x05,0x04,0x01,0x02,0x00,0xFF},{0xFF,0x03,0x05,0x04,0x01,0x02,0x00,0xFF}};		//Motor Code ASFG-HVB
-	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x05,0x03,0x04,0x01,0x00,0x02,0xFF},{0xFF,0x05,0x01,0x00,0x03,0x04,0x02,0xFF}};		//Motor Code ASRD
-	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x05,0x04,0x01,0x02,0x00,0xFF},{0xFF,0x01,0x05,0x00,0x03,0x02,0x04,0xFF}};		//Motor Code QDR
-	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x01,0x02,0x05,0x04,0x00,0xFF},{0xFF,0x01,0x03,0x02,0x05,0x00,0x04,0xFF}};		//Motor Code ASPO8
-	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x00,0x02,0x01,0x04,0x05,0x03,0xFF},{0xFF,0x04,0x02,0x03,0x00,0x05,0x01,0xFF}};		//Motor Code QPO2
-	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x05,0x04,0x01,0x02,0x00,0xFF},{0xFF,0x02,0x00,0x01,0x04,0x03,0x05,0xFF}};		//Motor Code RCS
-	//EXTERN const uint8_t hs_to_commutation[2][8] = 	{{0xFF,0x03,0x01,0x02,0x05,0x04,0x00,0xFF},{0xFF,0x05,0x01,0x00,0x03,0x04,0x02,0xFF}};		//Motor Code QSWD
-     /* EXTERN const uint8_t slcomp_mux[2][6];
-	EXTERN const uint8_t c_pwm_io_state[2][6];
-	EXTERN const uint8_t c_pwm_hiz_state[2][6];
-	EXTERN const uint32_t psel_mask[2][6];
-	EXTERN const uint32_t psel_mask_pbmux[2][6];
-	EXTERN const uint32_t psel_mask_pcmux[2][6];
-	EXTERN const uint32_t slcomp_cross_polarity[2][6];
-	EXTERN const uint8_t hs_to_commutation[2][8];
+
 */
         
         
 #else
-	EXTERN const uint8_t slcomp_mux[2][6];
+
 	EXTERN const uint8_t c_pwm_io_state[2][6];
-	EXTERN const uint8_t c_pwm_hiz_state[2][6];
 	EXTERN const uint32_t psel_mask[2][6];
-	EXTERN const uint32_t psel_mask_pbmux[2][6];
-	EXTERN const uint32_t psel_mask_pcmux[2][6];
-	EXTERN const uint32_t slcomp_cross_polarity[2][6];
 	EXTERN const uint8_t hs_to_commutation[2][8];
 #endif
 
@@ -136,6 +146,8 @@ EXTERN uint32_t phase_pwm_period;
 EXTERN uint32_t pwm_period_ticks; 
 EXTERN uint32_t pwm_period_div256;
 
+EXTERN uint32_t fan_pwm_period_div256;
+
 
 EXTERN uint32_t dt_leading_ticks, dt_trailing_ticks;
 
@@ -154,11 +166,14 @@ EXTERN uint32_t millisecond;
 
 PAC5XXX_RAMFUNC void update_motor_params();
 PAC5XXX_RAMFUNC void commutate(uint32_t ccrn);
+void accel(uint32_t acc);
 void motor_pwm_disable();
 void motor_pwm_enable();
 void oc_reset(void);
 void GpioA_IRQHandler(void);
 void Set_Dead_Time(void);
+void Differential_Amplifier_Calibrate(void);
+
 
 
 
@@ -189,16 +204,17 @@ EXTERN uint32_t SMS_State;
 #define OC_RESET                0x04
 #define INIT_COMPLETE_NOTIFY    0x05
 #define CAN_PING                0x06
-
-#define SHUTDOWN_ACK            0x02
+#define SHUTDOWN_ACK            0x07
 
 #define INIT_MOTOR_PARAMS       0x10
 #define ACCELERATE              0x11
 #define BRAKE_APPLY             0x12
 #define SET_MOTOR_DIRECTION     0x13
 #define BRAKE_END               0x14
+#define SET_FAN_SPEED           0x15
 
 #define GET_MOTOR_SPEED         0x20
+#define GET_PHASE_CURRENT       0x21
 
 
 #define SEND_MOTOR_SPEED     0x30
@@ -208,6 +224,10 @@ EXTERN uint32_t SMS_State;
 
 
 
+
+#define	U1_ADC_VAL				PAC55XX_ADC->DTSERES2.VAL
+#define	V1_ADC_VAL				PAC55XX_ADC->DTSERES4.VAL
+#define	W1_ADC_VAL				PAC55XX_ADC->DTSERES6.VAL
 
 
 

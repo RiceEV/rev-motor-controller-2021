@@ -3029,6 +3029,9 @@
             <group>
                 <name>ISR_Handlers</name>
                 <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\ISR_Handlers\isr_adc.c</name>
+                </file>
+                <file>
                     <name>$PROJ_DIR$\pac55xx_sdk\src\ISR_Handlers\isr_Stubs.c</name>
                 </file>
                 <file>
@@ -3051,6 +3054,12 @@
                 </file>
                 <file>
                     <name>$PROJ_DIR$\pac55xx_sdk\src\state_machine\state_machine.h</name>
+                </file>
+            </group>
+            <group>
+                <name>timer</name>
+                <file>
+                    <name>$PROJ_DIR$\pac55xx_sdk\src\timer\timer_func.h</name>
                 </file>
             </group>
             <group>

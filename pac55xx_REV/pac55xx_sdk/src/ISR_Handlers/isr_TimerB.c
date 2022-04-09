@@ -11,6 +11,7 @@
  */
 void TimerB_IRQHandler(void)
 {
+  
     if (num_periods < 0x0FFF)
       num_periods++;
     else 

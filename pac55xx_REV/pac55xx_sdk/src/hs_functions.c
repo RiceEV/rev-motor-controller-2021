@@ -14,11 +14,7 @@ PAC5XXX_RAMFUNC void commutate(uint32_t ccrn){
   static uint8_t prev_val = 0;
   // need to ensure motor_dir is initialized prior to commutation
   next_commutation_state = hs_to_commutation[motor_dir][hall_sensor_value];
-  
-  
-  
-  
-  
+    
   
   
   /*switch(hall_sensor_value) {
@@ -66,7 +62,7 @@ PAC5XXX_RAMFUNC void commutate(uint32_t ccrn){
    __enable_irq();
    
    
-   if ((next_commutation_state != prev_val) || ccrn == firstcomm) {
+   //if ((next_commutation_state != prev_val) || ccrn == firstcomm) {
     prev_val = next_commutation_state;
  /*   
     switch(hall_sensor_value) {
@@ -178,7 +174,7 @@ PAC5XXX_RAMFUNC void commutate(uint32_t ccrn){
    //PAC55XX_TIMER_SEL->CTR.COUNTER = 0;
    
   //}
-   } 
+   //} 
 }
 
 void motor_pwm_disable(void)

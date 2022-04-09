@@ -63,6 +63,15 @@ void state_machine(void)
 		break;
 
 	case SMS_Speed_Control_Loop:
+#ifdef SOFT_START
+    if (accel_factor >  PAC55XX_TIMER_SEL->CCTR4.CTR) {
+      uint32_t soft_accel = PAC55XX_TIMER_SEL->CCTR4.CTR + 1;
+      PAC55XX_TIMER_SEL->CCTR4.CTR = soft_accel;
+      PAC55XX_TIMER_SEL->CCTR5.CTR = soft_accel;
+      PAC55XX_TIMER_SEL->CCTR6.CTR = soft_accel;
+      
+    }
+#endif
 		
           //if (accel_factor < target_accel_factor) {
             //accel_factor += SPEED_INCREMENT_UNIT;

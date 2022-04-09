@@ -42,6 +42,7 @@ void TimerC_IRQHandler(void)
   stopped = 0;
           if (PAC55XX_TIMERC->INT.BASEIF)
                 {       
+             
                     //uart_write_one(UARTB, 'A');
                 //avg_speed_array[avg_speed_index] += PAC55XX_TIMERC->PRD.PERIOD;
 		commutate(pwmc_base);

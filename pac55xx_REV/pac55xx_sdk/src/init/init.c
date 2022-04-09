@@ -160,6 +160,50 @@ void gate_drive_init(void)
 
 }
 
+void fan_pwm_init(void) {
+  
+  uint32_t pclk = 300000000/2;        // PCLK assumed to be 150 MHz
+    uint16_t period;
+
+    // Configure Timer C Controls
+    period = pclk / 10000;                                                      // Timer Period will result in 10 kHz
+    pac5xxx_timer_clock_config(TimerD, TXCTL_CS_ACLK, TXCTL_PS_DIV1);           // Configure timer clock input for ACLK, /1 divider
+    pac5xxx_timer_base_config(TimerD, period, AUTO_RELOAD, TxCTL_MODE_DISABLED, TIMER_SLAVE_SYNC_DISABLE);     // Configure timer frequency and count mode
+
+    PAC55XX_TIMERD->CTL.PRDLATCH = TXCTL_PRDLATCH_TXCTR_IM;                     // 00b--> copied TAPRD into the shadow registers when TACTR from 1 to 0(or from TAPRD to 0)  
+                                                                                // 01b--> copied TAPRD into the shadow registers when TACTR from TAPRD-1 to TAPRD
+                                                                                // 10b--> copied TAPRD into the shadow registers as soon as the TAPRD register is written
+
+    PAC55XX_TIMERD->CCTR4.CTR = period >>2;
+
+    // Enable TACCR0 interrupt at highest priority
+    PAC55XX_TIMERD->CCTL4.CCMODE = TXCCTL_CCMODE_COMPARE;                       // Set compare mode
+
+    PAC55XX_TIMERD->CCTL4.CCINTEDGE = TXCCTL_CCINT_FALLING_EDGE;                // 0 -->rising edge interrupt
+                                                                                // 1 -->falling edge interrupt
+                                                                                // 2 -->rising and falling edge interrupt
+
+    PAC55XX_TIMERD->CCTL4.CCLATCH = TXCCTL_CCLATCH_COMPARE_TXCTR_IM;            // 00b--> copied CTR4 into the shadow registers when TACTR from 1 to 0(or from TAPRD to 0) 
+                                                                                // 01b--> copied CTR4 into the shadow registers when TACTR from TAPRD-1 to TAPRD 
+                                                                                // 10b--> copied CTR4 into the shadow registers as soon as the TAPRD register is written
+
+    PAC55XX_TIMERD->CTL.MODE = TxCTL_MODE_UPDOWN;
+
+    PAC55XX_TIMERD->CCTL4.CCINTEN = 1;                                          // Enable interrupts on TCCCR0
+    PAC55XX_TIMERD->INT.CCR4IF = 1;                                             // Clear PWMC0 interrupt flag 
+    PAC55XX_TIMERD->CTL.BASEIE = 1;                                             // Enable base timer
+    PAC55XX_TIMERD->INT.BASEIF = 1;                                             // Clear timer base interrupt flag
+    NVIC_EnableIRQ(TimerD_IRQn);                                                // Enable TimerC interrupts
+    NVIC_SetPriority(TimerD_IRQn ,1);                                           // Set TimerC Priority to 1
+
+    PAC55XX_SCC->PFMUXSEL.P4 = 2;                                             // PE0 -->PWMC0
+    PAC55XX_GPIOF->OUTMASK.P4 = 0;   // PE0 -->Output
+    
+    PAC55XX_GPIOF->MODE.P4 = IO_PUSH_PULL_OUTPUT;
+    PAC55XX_GPIOF->OUT.P4 = 0;
+    
+}
+
 void configure_timer_b_compare_mode(void)
 {
     //uint32_t pclk = 300000000/2;        // PCLK assumed to be 150 MHz
@@ -167,8 +211,8 @@ void configure_timer_b_compare_mode(void)
 
     // Configure Timer B Controls
     //period = pclk / 10000;                                                      // Timer Period will result in 10 kHz
-    pac5xxx_timer_clock_config(TimerB, TXCTL_CS_PCLK, TXCTL_PS_DIV128);           // Configure timer clock input for ACLK, /1 divider
-    pac5xxx_timer_base_config(TimerB, 0xFFFF, 0, TxCTL_MODE_DISABLED, 0);     // Configure timer frequency and count mode
+    //pac5xxx_timer_clock_config(TimerB, TXCTL_CS_PCLK, TXCTL_PS_DIV128);           // Configure timer clock input for ACLK, /1 divider
+    //pac5xxx_timer_base_config(TimerB, 0xFFFF, 0, TxCTL_MODE_DISABLED, 0);     // Configure timer frequency and count mode
 
     PAC55XX_TIMERB->CTL.PRDLATCH = TXCTL_PRDLATCH_TXCTR_IM;                     // 00b--> copied TAPRD into the shadow registers when TACTR from 1 to 0(or from TAPRD to 0)  
                                                                                 // 01b--> copied TAPRD into the shadow registers when TACTR from TAPRD-1 to TAPRD
@@ -191,8 +235,8 @@ void configure_timer_b_compare_mode(void)
 
     PAC55XX_TIMERB->CCTL4.CCINTEN = 1;                                          // Enable interrupts on TCCCR0
     PAC55XX_TIMERB->INT.CCR4IF = 1;                                             // Clear PWMC0 interrupt flag 
-    PAC55XX_TIMERB->CTL.BASEIE = 1;                                             // Enable base timer
-    PAC55XX_TIMERB->INT.BASEIF = 1;                                             // Clear timer base interrupt flag
+    //PAC55XX_TIMERB->CTL.BASEIE = 1;                                             // Enable base timer
+    //PAC55XX_TIMERB->INT.BASEIF = 1;                                             // Clear timer base interrupt flag
     //NVIC_EnableIRQ(TimerB_IRQn);                                                // Enable TimerC interrupts
     //NVIC_SetPriority(TimerB_IRQn ,1);                                           // Set TimerC Priority to 1
 
@@ -217,6 +261,47 @@ void rpm_measure_init(void) {
     NVIC_SetPriority(TimerB_IRQn ,1); 
     
     
+}
+
+void adc_init(void)
+{
+	//pac5xxx_adc_enable(0);
+        PAC55XX_ADC->ADCCTL.ENABLE = 0;
+	// EMUX configuration
+	pac5xxx_adc_emux_config(ADCEMUXCTL_DTSE_SEQ, ADCEMUXCTL_EMUXDIV_DIV16);	 		// Configure EMUX to do conversions from ADC sequencer, /2 EMUX divider (HCLK=50MHz/2 = 25MHz)
+	pac5xxx_adc_config_emux_io();													// Configure device IO for EMUX
+
+	//ADC configuration
+	pac5xxx_adc_config(ADCCTL_MODE_DTSE, ADCCTL_CLKDIV_DIV8, 0);		// Configure ADC for ASC0 independent trigger sequence, /3 divider (PLLCLK=100MHz/3=16.66MHz), repeat mode
+	pac5xxx_adc_config_io(ADC_CHANNEL_MASK);										// Configure device IO for ADC conversions (as Analog inputs)
+	PAC55XX_GPIOF->MODE.P6 = 0;                     // ADC INPUT
+
+	//AS0 configuration
+
+
+	//pac5xxx_adc_config_pwm()
+	PAC55XX_ADC->DTSETRIGENT0TO3.TRIG2CFGIDX = 0;						//PWMA2 triggers a sequence starting with element 0
+	PAC55XX_ADC->DTSETRIGENT0TO3.TRIG2EDGE = ADCDTSE_TRIGEDGE_FALLING;
+
+	//void pac55xx_adc_dtse_element_config(DTSE_SEQ_CFG_TYPEDEF * reg_add, int sel_emuxc, int adc_channel, int delay, int EMUX_data, int NoConv, int Seq_done, int IRQ_number, int IRQ_enable)
+
+	pac5xxx_dtse_seq_config(0, ADCCTL_ADMUX_VIN, ADC_SEQ_HBU_EDATA, 0, 0);	// Convert VIN - Dummy EMUX
+	pac5xxx_dtse_seq_config(1, ADCCTL_CHANNEL_ADC0, ADC_SEQ_HBU_EDATA, 0, 0);	// RSU - Dummy EMUX
+	pac5xxx_dtse_seq_config(2, ADCCTL_CHANNEL_ADC0, ADC_SEQ_HBV_EDATA, 0, 0);	// Convert RSU
+	pac5xxx_dtse_seq_config(3, ADCCTL_CHANNEL_ADC0, ADC_SEQ_HBV_EDATA, 0, 0);	// RSV - Dummy EMUX
+	pac5xxx_dtse_seq_config(4, ADCCTL_CHANNEL_ADC0, ADC_SEQ_HBW_EDATA, 0, 0);	// Convert RSV
+	pac5xxx_dtse_seq_config(5, ADCCTL_CHANNEL_ADC5, ADC_SEQ_HBW_EDATA, 0, 0);	// RSw - Dummy EMUX - Converrt Potentiometer on PF5
+	pac5xxx_dtse_seq_config(6, ADCCTL_CHANNEL_ADC0, ADC_SEQ_VMS_EDATA, ADC_IRQ0_EN, SEQ_END);	// Convert RSW
+
+	// Enable ADC interrupts on AS0 for control loop
+	NVIC_SetPriority(ADC0_IRQn, 2);													// Configure interrupt priority
+	NVIC_EnableIRQ(ADC0_IRQn);														// Enable ADC interrupts in the NVIC
+
+	// Enable ADC
+	//pac5xxx_adc_enable(1);
+         PAC55XX_ADC->ADCCTL.ENABLE = 1;
+	//pac5xxx_adc_start();
+        PAC55XX_ADC->ADCCTL.START = 1;
 }
 
 
@@ -272,8 +357,8 @@ void cafe_init(void)
 
 	// Disable both HS and LS drivers on PR event (nHSPRM=1, nLSPRM=1);
 	// Prop Delay 0 ns; Enable Break Before Make
-	//pac5xxx_tile_register_write(ADDR_CFGDRV1, 0x0D);              
-        pac5xxx_tile_register_write(ADDR_CFGDRV1, 0x01);                // only bbm
+	pac5xxx_tile_register_write(ADDR_CFGDRV1, 0x0D);              
+        //pac5xxx_tile_register_write(ADDR_CFGDRV1, 0x01);                // only bbm
 	// Cycle By Cycle on Diff Amp AIO10/32/54. Disable only high side
 	pac5xxx_tile_register_write(ADDR_CFGDRV2, 0x1D);
 	// Cycle By Cycle on Diff Amp AIO10/32/54 compared against LPDAC
